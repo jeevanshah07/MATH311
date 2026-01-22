@@ -1,0 +1,218 @@
+\section{Unit 1}
+\subsection{Lecture 1}
+\subsubsection{Topic 1.1: The Irrationality of $\sqrt{2}$}
+
+\begin{defbox}{The Natural Numbers}{}
+    The natural numbers, $\NN$ are defined as the counting numbers. For the purposes of this course we will \textbf{not} include $0$. 
+    \[ \NN = \braces{1, 2, 3, \ldots} \]
+\end{defbox}
+Notice that $\NN$ is not closed under subtraction or division. Recall that a set is \textbf{closed} under an operation if for two elements in the set, when the operation is applied, the resulting number is also in the set. So, for example, $1$ and $2$ are both natural numbers, but $1-2=-1$ which is not a natural number.
+
+\begin{defbox}{The Integers}{}
+    The integers, $\ZZ$, are the set of numbers you get when trying to close $\NN$ under subtraction.
+    \[ \ZZ = \braces{\ldots, -2, -1, 0, 1, 2, 3, \ldots} \]
+\end{defbox}
+Similar to the natural numbers you may notice that the integers are not closed under division (for example: $1 \div 2 = \frac{1}{2}$ which is not an integer). 
+
+\begin{defbox}{The Rational Numbers}{}
+    The rational numbers, $\QQ$, are the set of numbers you get when trying to close the integers under division.
+    \[ \QQ = \braces{\frac{a}{b} \mid a, b \in \ZZ\left(b\neq\,0\right)} \]
+\end{defbox}
+
+Now there are several things to note about the rationals. 
+
+\begin{enumerate}
+    \item $\QQ$ has a natural order relation: $a < b$ is $b - a > 0$. So, for all rational numbers, $a, b \in \QQ$ only one of the following statements can be true: $a < b$, $a > b$, or $a = b$.
+    \item $\QQ$ is closed under addition, subtraction, multiplication, and division (except division by zero)
+    \item $\QQ$ is not \textbf{complete} in the sense that $\QQ$ cannot represent all the geometric lengths along the number line. For example, consider plotting all the rational numbers between $1$ and $2$ on a number line. If you were to do this there would still be gaps between certain numbers (notable $\sqrt{2} \approx 1.41\ldots$), so you would be unable to draw a straight continuous line from $1$ to $2$. 
+\end{enumerate}
+
+\begin{thm}{}{}
+    There is no rational number whose square is $2$. 
+    \begin{proof}
+        We will prove this by contradiction. Suppose the opposite, that is, suppose that there exist a rational number in the form $\frac{p}{q}$, with $p$ and $q$ co-prime, whose square is $2$. 
+        \begin{align*}
+            \left(\frac{p}{q}\right)^2 = 2 &\Rightarrow \frac{p^2}{q^2} = 2 \tag{by assumption} \\
+            &\Rightarrow p^2 = 2q^2 \\
+            &\Rightarrow p^2 \text{ is even} \Rightarrow p \text{ is even} \Rightarrow p = 2k \\
+            &\Rightarrow (2k)^2 = 2q^2 \\
+            &\Rightarrow 4k^2 = 2q^2 \\
+            &\Rightarrow 2k^2 = q^2 \\
+            &\Rightarrow q^2 \text{ is even} \Rightarrow q \text{ is even} \Rightarrow q = 2s \\
+        \end{align*}
+        However, since both $p$ and $q$ are even, they share a common factor of $2$ which is a contradiction to the assumption that they are co-prime. Thus our supposition must be false and $\sqrt{2} \not\in \QQ$.
+    \end{proof}
+\end{thm}
+
+\subsubsection{Topic 1.2: Some Preliminaries}
+Before getting into any major definitions, it's important to define some basic notation. `$\forall$' indicates `for all' or `for any'. `$\exists$' indicates `exists'. For example the statement 
+\[
+    \exists x \in \RR \text{ s.t. } \forall y \in \RR, xy = y
+\]
+would be read as, `\textit{there exists} a real number $x$ such that\footnote{You may see the abbreviation `s.t.' for such that} \textit{for all/any} real number $y$, $xy=y$'. `$\Rightarrow$' stands for implication and `$\Leftrightarrow$' is a bi-directional implication. For example, $a = b \Rightarrow a^2 = b^2$ is read `$a = b$ \textit{implies} that $a^2 = b^2$' and `$x$ is divisible by $2 \Leftrightarrow x$ is even' is read `$x$ is divisible by $2$ if, and only if, $x$ is even'. It's important to note that with bi-directional implication, each statement implies the other. This contrasts the single direction implication because, for example, $a^2 = b^2$ does \textbf{not} imply that $a = b$ since it is possible that $a = -b$. However, in the example case of bi-directional implication $x$ being divisble by $2$ \textbf{does} imply that $x$ is even and $x$ being even \textbf{does} imply that $x$ is divisible by $2$. Thus, when proving a theorem with a bi-directional statement, you must prove \textit{both} the forwards (assume the first proposition is true and show that it implies the second) and the backwards (assume the second proposition is true and show that it implies the first) direction.
+
+\begin{defbox}{Sets}{}
+    A \textbf{set} is a collection of objects. The objects in a set are called the \textbf{elements} of the set. If $x$ is an element of a set $A$, we write $x \in A$. If $x$ is not an element of $A$ we write $x \not\in A$. The set with no elements is called the \textbf{empty set} and is denoted $\varnothing$.
+\end{defbox}
+
+There are also various operations defined with sets. The main ones are \textbf{union} and \textbf{intersection}. The union of two sets, $A$ and $B$, is defined as 
+\[
+    A \cup B = \braces{x \mid x \in A \text{ or } x \in B}.
+\]
+Likewise, we define the intersection of two sets, $A$ and $B$, as
+\[ 
+    A \cap B = \braces{x \mid x \in A \text{ and } x \in B}.
+\]
+
+\begin{defbox}{Subsets}{}
+    Given two sets, $A$ and $B$, we say $A$ is a \textbf{subset} of $B$ if every element in $A$ is also in $B$. We write $A \subseteq B$. If $A \subseteq B$ but $A \neq B$ we write $A \subsetneq B$. 
+\end{defbox}
+
+Similar to the definition of equality with numbers ($a = b$ if, and only if $a \geq b$ and $a \leq b$), we define set equality in an analogous manner. If $A$ and $B$ are any two sets, then $A = B$ if, and only if, $A \subseteq B$ and $B \subseteq A$.
+
+\begin{defbox}{Complement of a Set}
+    Given a set $A \subseteq X$, the complement of $A$ in $X$ is the set of all elements of $X$ that are not in $A$. We write $A^{c}$ or $X \setminus A$ to denote the complement. 
+\end{defbox}
+
+\begin{prop}{De Morgan's Laws}
+    Let $X$ be a set such that $A, B \subseteq X$. Then, 
+    \begin{enumerate}
+        \item $\left(A \cup B\right)^{c} = A^{c} \cap B^{c}$
+        \item $\left(A \cap B\right)^{c} = A^{c} \cup B^{c}$
+    \end{enumerate} 
+    \begin{proof}
+        To prove $\left(A \cup B\right)^{c} = A^{c} \cap B^{c}$ we must show that $\left(A \cup B\right)^{c} \subseteq A^{c} \cap B^{c}$ and that $A^{c} \cap B^{c} \subseteq \left(A \cup B\right)^{c}$. Start by considering some $x \in \left(A \cup B\right)^{c}$. Then $x \not\in A \cup B$ by definition of complement. So, $x \not\in A$ and $A \not\in B$ by definition of union. Thus, $x \in A^{c}$ and $x \in B^{c}$, so $x \in A^{c} \cap B^{c}$. Now to go backwards, consider $x \in A^{c} \cap B^{c}$. Then, $x \in A^{c}$ and $x \in B^{c}$ by definition of intersection. But, $x \not\in A$ and $x \not\in B$ by definition of complement. It follows that $x \not\in A \cup B$, which leads us directly to $x \in \left(A \cup B\right)^{c}$. The second statement of De Morgan's Laws follows a very similar logically process, so the proof is left as an exercise for the reader.
+    \end{proof}
+\end{prop}
+
+\begin{defbox}{Functions}
+    Given two sets $A$ and $B$, a \textbf{function} from $A$ to $B$ is a rule or mapping that takes each element $x \in A$ and associates it with a single element of $B$. $A$ is called \textbf{domain} and $B$ the \textbf{range}.
+    \[
+        f: A \to B 
+    \]
+\end{defbox}
+
+One basic example of a function is the \textit{absolute value} function. The absolute value function, $f: \RR \to \RR$ is defined as:
+\[
+    f(x) = |x| = \begin{cases}
+        x &\quad\text{if } x \geq 0 \\
+        -x &\quad\text{if } x < 0
+    \end{cases}
+\]
+An interesting thing to note is that the absolute value function satisfies the triangle inequality: 
+\[
+    |x + y| \leq |x| + |y|.
+\]
+
+Taking a break from definitions we now focus on the main ways to prove a theorem: 
+\begin{itemize}
+    \item \underline{Direct Proof} - a sequence of statements which are either givens or deductions from previous statements and whose last statement is the conclusion to be proved.
+    \item \underline{Proof by Contradiction} - Typically you will always begin by assuming the negation of the statement you want to prove before going on to show that this leads to a contradiction. Note that if you assume the negation of the hypothesis of the theorem, rather than the conclusion, this is actually \underline{proof by contrapositive}.
+    \item \underline{Proof by Induction} (a proof by induction of $P(n)$) - Consider some proposition $P$. First, you show that $P$ is true for some initial value (usually $0$ or $1$). Then, assume for some value $k$ that $P(k)$ is correct. This is called the induction hypothesis. Finally, prove directly that $P(k+1)$ also holds true by assuming $P(k)$ is also true.
+\end{itemize}
+We will now practice proof by contradiction on the following theorem. 
+
+\begin{thm}{}
+    For $a, b \in \RR$, $a = b$ if, and only if, $\forall \epsilon > 0, |a - b| < \epsilon$
+    \begin{proof}
+        \underline{For the forwards direction:} If $a = b$ then $\forall \epsilon > 0, |a - b| < \epsilon$ because $|a - b| = 0 < \epsilon, \forall \epsilon > 0$. 
+        \underline{For the backwards direction:} We will use proof by contradiction. Suppose that $\forall \epsilon > 0, |a - b| < \epsilon \implies a \neq b$. If $a \neq b$, then $|a - b| = \epsilon_0 > 0$. We choose $\epsilon = \frac{\epsilon_0}{2}$, so that $|a - b| = \epsilon_0 > \frac{\epsilon_0}{2} = \epsilon > 0$ but $|a - b| < \epsilon$ which is a contradiction. 
+    \end{proof}
+\end{thm}
+
+\begin{example}{Proof by Induction Practice}{}
+    Let $x_1 = 1$ and $\forall n \in \NN$, define $x_n=\frac{1}{2}x_n + 1$. Show that $x_n \leq x_{n+1}$.  
+    \begin{solution}
+        \begin{proof}
+            We will use induction on $P(n) = x_n$. First we must show that $x_{1} \leq x_{2}$. This is easy enough since, 
+            \[
+                x_1 = 1 \leq \frac{3}{2} = \frac{1}{2}(1) + 1 = x_{2}.
+            \]
+            Now, we suppose that $P(k)$ is true, that is, suppose that $x_k \leq x_{k+1}$. We must show that $P(k+1)$ is true or that $x_{k+1} \leq x_{k+1}$. But, 
+            \begin{align*}
+                x_{k} \leq x_{k+1} &\Rightarrow \frac{1}{2}x_k + 1 \leq \frac{1}{2}x_{k+1} + 1 \\
+                &\Rightarrow x_{k+1} \leq x_{k+2}
+            \end{align*}
+        \end{proof}
+    \end{solution}
+\end{example}
+
+\subsubsection{Topic 1.3: The Axiom of Completeness}
+\begin{defbox}{Upper and Lower Bounds}
+    Consider a set $A \subseteq \RR$. A real number $M$ is called an \textbf{upper bound} for $A$ if $\forall x \in A, x \leq M$. A real number $N$ is called a \textbf{lower bound} for $A$ if $\forall x \in A, x \geq N$.
+\end{defbox}
+
+Consider the set $A = \braces{x \in \RR \mid x^2 < 2}$. One possible upper bound for this set is $2$. As well, $10$, $1000$, and $123456789$ are also all upper bounds for this set. However, $1$ is not an upper bound for this set because there exists elements of $A$ that are greater than $1$. Now consider the set $\RR^{+} = \braces{x \in \RR \mid x > 0}$. $\RR^{+}$ \textit{does not have an upper bound}, we say it is \textbf{unbounded}.
+
+\begin{defbox}{Least Upper Bound}
+    Consider a non-empty set $A \subseteq \RR$. Then, $s$ is the \textbf{least upper bound}, or \textbf{supremum}, of $A$ if 
+    \begin{enumerate}
+        \item $s$ is an upper bound for $A$, and
+        \item if $b$ is any upper bound for $A$, then $s \leq b$. 
+    \end{enumerate}
+    We then write $\sup{A} = s$
+\end{defbox}
+
+
+Consider now the set $A = \braces{\frac{1}{n} \mid n \in \NN}$. Then the least upper bound for $A$ is $\sup{A} = 1$.
+
+\begin{defbox}{Greatest Lower Bound}
+    Consider a non-empty set $A \subseteq \RR$. Then, $s$ is the \textbf{greatest lower bound}, or \textbf{infimum}, of $A$ if 
+    \begin{enumerate}
+        \item $s$ is a lower bound for $A$, and
+        \item if $b$ is any lower bound for $A$, then $s \geq b$. 
+    \end{enumerate}
+    We then write $\inf{A} = s$
+\end{defbox}
+
+\begin{thm}{Axiom of Completeness}
+    Every non-empty set of \underline{real} numbers that is bounded above has a supremum (least upper bound). 
+\end{thm}
+
+It's extremely important to note that \textbf{the axiom of completeness does \underline{not} hold true for the rational numbers}. To see why consider again the set $A = \braces{x \in \QQ \mid x^2 < 2}$. One might first say that an upper bound is $1.5$ since $\sqrt{2} \approx 1.4142$. However, this is not the least upper bound since $1.42 < 1.5$ and is also an upper bound. But, again, $1.415$ is \textit{also} an upper bound for $A$ and $1.415 < 1.42$. Since we can continue along this line of reasoning forever, there is no supreme for $A$ despite $A$ being bounded above by $2$.
+
+\begin{example}{}{}
+   Consider $A \subseteq \RR$ s.t. $A$ is bounded above and let $c \in \RR$. Define $c + A = \braces{c + a \mid a \in A}$. Show that, $\sup(c + A) = c + \sup{A}$. 
+   \begin{solution}
+        \begin{proof}
+            Set $s=\sup{A}$. Then $a \leq s \quad\forall a \in A$. Now for $a \in A$,
+            \[
+                c + a \leq c + s
+            \]
+            so $c+s$ is an upper bound for $A$. Now we must show that $c+s$ is the least upper bound for $A$. To do so, consider some upper bound $b$ for $c + A$. Then, 
+            \begin{align}
+                &c + a \leq b \quad\forall a \in A \nonumber \\
+                \Rightarrow&\, a \leq b - c \quad\forall a \in A \label{eq:1} \\
+                \Rightarrow&\, s \leq b - c \label{eq:2}\\
+                \Rightarrow&\, s + b \leq b. \nonumber
+            \end{align}  
+            So, $\sup(c+A) = c + s = c + \sup{A}$. 
+        \end{proof}
+   \end{solution}
+\end{example}
+For those confused why~(\ref{eq:2}) follows from~(\ref{eq:1}) notice that~(\ref{eq:1}) shows that $b-c$ is an upper bound for $A$ by definition, and $s$ must be less than or equal to $b-c$ by being the least upper bound for $A$. 
+
+\begin{lma}{}
+    Let $s \in \RR$ be an upper bound for $A \subseteq \RR$. Then $s = \sup{A}$ if, and only if, $\forall \epsilon > 0, \exists a \in A \st s - \epsilon < a$
+    \begin{proof}
+        \underline{For the forwards direction:} Assume $s = \sup{A}$ and $\epsilon > 0$. Since $s - \epsilon < s$, $s - \epsilon$ is not an upper bound. If $s - \epsilon$ is not an upper bound for $A$, then there must exist some $a \in A$ such that $s - \epsilon < a$. \underline{For the backwards direction:} Assume $s$ be an upper bound such that $\forall \epsilon > 0, \exists a \in A \st s-\epsilon$ (i.e. any number smaller than $s$ is not an upper bound). Consider some other upper bound $b$. 
+        \begin{enumerate}
+            \item If $b \geq s$ then $s$ is the supremum since it is less than all other upper bounds. 
+            \item If $b < s$ then take $\epsilon = s - b$ and consider $s - \epsilon < a$ but $s - \epsilon = s - (s - b) = s - s + b = b$ so $b < a$. This is a contradiction since $b$ is an upper bound for $A$, so $s$ must be the supremum of $A$.
+        \end{enumerate}
+    \end{proof}
+\end{lma}
+
+\begin{defbox}{Max/Min}
+    A real number $a_{0}$ is called the \textbf{max} of a set $A$ is $a_0 \in A$ and $a_{0}$ is an upper bound for $A$. A real number $a_0$ is called the \textbf{min} of a set $A$ if $a_{0} \in A$ and $a_0$ is a lower bound for $A$.
+\end{defbox}
+
+Consider the sets 
+\[
+    A\footnote{This is the \textit{open} unit disk} = \braces{x \in \RR \mid 0 < x < 1} \text{ and } B\footnote{This is the \textit{closed} unit disk} = \braces{x \in \RR \mid 0 \leq x \leq 1}.
+\]
+Then, $\max{A}$ does not exist, but $\sup{A} = 1$. We also have that $\max{B}=\sup{B}=1$. From this discussion we have the following fact:
+
+\begin{rmk}{}
+    The supremum can exist and not be a max, but when a max exists, then it is also a supremum.
+\end{rmk}
