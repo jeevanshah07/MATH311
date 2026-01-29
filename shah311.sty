@@ -36,11 +36,14 @@
 \newenvironment{defbox}[1]{\begin{tcolorbox}[colback=green!25!white, breakable, sharp corners, title=#1]}{\end{tcolorbox}}
 
 \newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{proposition}{Proposition}[section]
 \newtheorem{lemma}{Lemma}[section]
 \newtheorem{remark}{Remark}
 
 \newenvironment{thm}[1]{\begin{tcolorbox}[colback=LightSalmon1, breakable, sharp corners]\begin{theorem}[#1]}{\end{theorem}\end{tcolorbox}}
+
+\newenvironment{coro}{\begin{tcolorbox}[colback=Gold2, breakable, sharp corners]\begin{corollary}}{\end{corollary}\end{tcolorbox}}
 
 \newenvironment{prop}[1]{\begin{tcolorbox}[colback=DarkOrchid2!40!white, breakable, sharp corners]\begin{proposition}[#1]}{\end{proposition}\end{tcolorbox}}
 

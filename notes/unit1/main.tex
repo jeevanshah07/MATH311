@@ -216,3 +216,72 @@ Then, $\max{A}$ does not exist, but $\sup{A} = 1$. We also have that $\max{B}=\s
 \begin{rmk}{}
     The supremum can exist and not be a max, but when a max exists, then it is also a supremum.
 \end{rmk}
+
+\subsection{Lecture 3}
+\subsubsection{Consequences of Completeness [1.4]}
+\begin{thm}{Nested Interval Property}{}
+    For $n \in \NN$, let $I_n = [a_n, b_n] = \braces{x \in \RR \mid a_n \leq x \leq b_n}$. Assume that 
+    \[
+        I_1 \supseteq I_2 \supseteq I_3 \supseteq \cdots \supseteq I_n.
+    \]
+    Then, 
+    \[
+        \bigcap_{n=1}^{\infty} I_n \neq \varnothing
+    \]
+    \begin{proof}
+        Let $A = \braces{a_n}_{n=1}^{\infty}$ be bounded above by $b_1$. By the axiom of completeness $A$ has a least upper bound, say $a = \sup\braces{A}$. Then $a \in [a_n, b_n]$ for all $n$ since $a_n \leq a$ by definition of supremum but $a \leq b_n$ by definition of $I_n$. So $a_n \leq a \leq b_n$ which implies that 
+        \[
+            a \in \bigcap_{n=1}^{\infty} I_n
+        \]
+        which was to be shown.
+    \end{proof}
+\end{thm}
+
+\begin{thm}{Archimedan Properties}
+    The following two properties are true: 
+    \begin{enumerate}
+        \item $\forall x \in \RR\, \exists\,n \in \NN \st x < n$
+        \item $\forall y \in \RR(y > 0)\, \exists\, n \in \NN \st y > \frac{1}{n}$
+    \end{enumerate}
+    \begin{proof}
+        The proof of $(1)$ is trivial. Prove $(2)$ by letting $x = \frac{1}{y} \in \RR$ and apply $(1)$. The statement of $(1)$ tells us that there exists $n \in \NN \st n > x = \frac{1}{y}$, so $y > \frac{1}{n}$, which was to be shown.
+    \end{proof}
+\end{thm}
+
+\begin{defbox}{Density}{}{}
+    Let $A$ and $B$ be sets. We say that $A$ is \textbf{dense} in $B$ if, and only if, 
+    \[
+        \forall\,x, y \in A(x < y),\, \exists\, r \in B \st x < r < y.
+    \] 
+\end{defbox}
+
+With this fact in mind, we lead into the next theorem: 
+
+\begin{thm}{Density of $\QQ$ in $\RR$}{\label{thm:1}}
+    For every two real numbers $a, b \in \RR(a < b)$ there exists $r \in \QQ$ such that $a < r < b$.
+    \begin{proof}
+        For $b - a > 0$ by the second Archimedan property we know that there exists $n \in \NN$ such that $b - a > \frac{1}{n}$. Thus, 
+        \begin{align*}
+            b - a > \frac{1}{n} &\Rightarrow n^{2}b - n^{2}a > n \Rightarrow \exists\,m \in \ZZ \st n^{2}a < m < n^{2}b \\
+            &\Rightarrow a < \frac{m}{n^2} < b.
+        \end{align*}
+        Choosing $r = \frac{m}{n^2} \in \QQ$ completes the proof.
+    \end{proof}
+\end{thm}
+
+Note that the exists of such an $m$ is intuitive since if the distance between $n^{2}a$ and $n^{2}b$ is at least $n$, then there must be $n$ integers between the two real numbers.
+
+\begin{coro}
+    Given $a, b \in \RR(a < b)$, there exists an irrational number $t$ such that $a < t < b$.
+    \begin{proof}
+        We start with the fact that $\sqrt{2}$ is a known irrational number. Then, $\displaystyle\frac{a}{\sqrt{2}} < \frac{b}{\sqrt{2}}$. Applying Thm~(\ref{thm:1}) we know that there must exist $r \in \QQ$ such that 
+        \[
+            \frac{a}{\sqrt{2}} < r < \frac{b}{\sqrt{2}}. 
+        \]
+        If $r$ is not irrational then we may simply manipulate the above inequality in the following manner
+        \[
+            \frac{a}{r} < \sqrt{2} < \frac{b}{r}.
+        \]
+        Thus $r' = \sqrt{2}$ is irrational and completes the proof.
+    \end{proof}
+\end{coro}
