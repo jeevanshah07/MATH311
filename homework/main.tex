@@ -1,0 +1,169 @@
+\documentclass{exam}
+\usepackage{../shah311}
+
+\hypersetup{colorlinks=true, linktoc=section, linkcolor=blue}
+
+\pagestyle{headandfoot}
+\firstpageheadrule
+\runningheadrule
+\firstpageheader{Prof. Rong \\ Real Analysis}{Homework 1}{Jeevan Shah}
+\runningheader{Real Analysis \\ Homework 1}{}{Shah}
+\firstpagefooter{}{}{}
+\runningfooter{ }{\thepage}{ }
+
+\printanswers
+
+\begin{document}
+\colorbox{red}{\underline{$1.2.5$}}
+\begin{parts}
+    \part If $x \in (A \cap B)^{c}$ then $x \not\in A \cap B$. Thus, either $x \not\in A \Rightarrow x \in A^{c}$ or $x \not\in B \Rightarrow x \in B^{c}$. It follows that $x \in A^{c} \cup B^c$ so, $(A \cap B)^{c} \subseteq A^{c} \cup B^{c}$.
+    \part If $x \in A^{c} \cup B^{c}$ then either $x \in A^{c}$ or $x \in B^{c}$. Without loss of generality assume that $x \in A^{c}$, which implies that $x \not\in A \Rightarrow x \not\in A \cap B \Rightarrow x \in (A \cap B)^{c}$, so $A^{c} \cup B^{c} \subseteq (A \cap B)^{c}$. Since both sets are subsets of each other, we conclude that $(A \cap B)^{c} = A^{c} \cup B^{c}$.
+    \part \begin{proof}
+        In order to show that $(A \cup B)^{c} \subseteq A^{c} \cap B^{c}$ consider $x \in (A \cup B)^{c}$. Then 
+        \begin{align*}
+            x \in (A \cup B)^{c} &\Rightarrow x \not\in A \cup B \\
+            &\Rightarrow x \not\in A \land x \not\in B \\
+            &\Rightarrow x \in A^{c} \land x \in B^{c} \\
+            &\Rightarrow x \in A^{c} \cap B^{c}.
+        \end{align*}
+        And so $(A \cup B) ^{c} \subseteq A^{c} \cap B^{c}$. \\
+        Now, consider $x \in A^{c} \cap B^{c}$. Then 
+        \begin{align*}
+            x \in A^{c} \cap B^{c} &\Rightarrow x \in A^{c} \land x \in B^{c} \\
+            &\Rightarrow x \not\in A \land x \not\in B \\
+            &\Rightarrow x \not\in A \cup B \\
+            &\Rightarrow x \in (A \cup B)^{c}. 
+        \end{align*}
+        And so $A^{c} \cap B^{c} \subseteq (A \cup B)^{c}$ thus $(A \cup B)^{c} = A^{c} \cap A^{C}$.
+    \end{proof}
+\end{parts}
+
+\colorbox{red}{\underline{$1.2.9$}}
+\begin{parts}
+    \part If we have $A = [0, 4]$ and $B = [-1, 1]$ then, 
+    \begin{align*}
+        f^{-1}(A) &= [0, 2] \\
+        f^{-1}(B) &= [0, 1] \\
+        f^{-1}(A \cup B) &= [0, 2] = f^{-1}(A) \cup f^{-1}(B) \\
+        f^{-1}(A \cap B) &= [0, 1] = f^{-1}(A) \cap f^{-1}(B).
+    \end{align*}
+    So, for $f$, $f^{-1}(A \cup B) = f^{-1}(A) \cup f^{-1}(B)$ and $f^{-1}(A \cap B) = f^{-1}(A) \cap f^{-1}(B)$.
+    \part \begin{proof}
+        Consider $x \in g^{-1}(A \cap B)$. Then $x \in \braces{a \mid g(a) \in A \cap B}$. So, 
+        \[
+            g(x) \in A \quad\text{and}\quad g(x) \in B
+        \]
+        which implies that 
+        \[
+            x \in g^{-1}(A) \quad\text{and}\quad x \in g^{-1}(B).
+        \]
+        Thus, $x \in g^{-1}(A) \cap g^{-1}(B)$ and $g^{-1}(A \cap B) \subseteq g^{-1}(A) \cap g^{-1}(B)$. \\
+        Now, if $x \in g^{-1}(A) \cap g^{-1}(B)$ then $x \in \braces{a \mid g(a) \in A \land g(a) \in B}$, so 
+        \[
+            g(x) \in A \quad\text{and}\quad g(x) \in B. 
+        \]
+        It follows that $g(x) \in A \cap B$, so $x \in g^{-1}(A \cap B)$. Thus, $g^{-1}(A) \cap g^{-1}(B) \subseteq g^{-1}(A \cap B)$, and so, $g^{-1}(A \cap B) = g^{-1}(A) \cap g^{-1}(B)$. \\
+        Now, we consider $x \in g^{-1}(A \cup B)$. By definition, 
+        \[
+            x \in \braces{a \mid g(a) \in A \cup B},
+        \]
+        therefore, either $g(x) \in A$ or $g(x) \in B$. It follows that $x \in g^{-1}(A)$ or $x \in g^{-1}(B)$, so $x \in g^{-1}(A) \cup g^{-1}(B)$. Thus, $g^{-1}(A \cup B) \subseteq g^{-1}(A) \cup g^{-1}(B)$. \\
+        For $x \in g^{-1}(A) \cup g^{-1}(B)$, we can see that 
+        \[
+            x \in \braces{a \mid g(a) \in A \lor g(a) \in B}. 
+        \]
+        Regardless if $g(x) \in A$ or $g(x) \in B$, $g(x) \in A \cup B$ since it must be in at least one of $A$ or $B$. It follows that $x \in g^{-1}(A \cup B)$, so $g^{-1}(A) \cup g^{-1}(B) = g^{-1}(A \cup B)$
+    \end{proof}
+\end{parts}
+
+\colorbox{red}{\underline{1.2.10}}
+\begin{parts}
+    \part Consider the reverse implication that if $a < b + \epsilon$ for all $\epsilon > 0$ then $a < b$. Take $a = b$ and notice that $a < b + \epsilon$ but $a \nless b$. Thus because the backwards direction doesn't work, the entire statement is false. 
+    \part Apply the same reasoning as above with $a = b$. Then $a < b + \epsilon$ for all $\epsilon > 0$ but $a \nless b$. Thus, ths statement is false.\
+    \part This statement is true. The forwards direction is trivial a if $a \leq b$ then $a < b + \epsilon$ for all $\epsilon > 0$. We show the backwards direction by contradiction. That is, suppose that $a < b + \epsilon$ for all $\epsilon > 0$ and that $a > b$. Now choose $\epsilon = \frac{a - b}{2}$ which is greater than $0$ since $a > b$. But,
+    \[
+        b + \epsilon = b + \frac{a - b}{2} = \frac{a + b}{2} < a.  
+    \]
+    This is a contraidction since $a < b + \epsilon$ for all $\epsilon > 0$. Thus our supposition must be false and $a \leq b$. 
+\end{parts}
+
+\colorbox{red}{\underline{1.2.13}}
+\begin{parts}
+    \part \begin{proof}
+        Consider the proposition 
+        \[
+            P(n) := (A_1 \cup A_2 \cup \cdots \cup A_n)^{c} =  A_1^c \cap A_2^c \cap \cdots \cap A_n^c
+        \]
+        for $n \in \mathbb{N}$. We will prove $P(n)$ for all $n \in \mathbb{N}$ using induction. The base case $P(1)$ is trivial as $(A_1)^c = A_1^c$. We now assume $P(k)$ for some $n=k$ and must show that $P(k+1)$ is true. That is, we must show that 
+        \[
+            (A_1 \cup A_2 \cup \cdots A_{k} \cup A_{k+1})^c = A_1^c \cap A_2^c \cap \cdots \cap A_{k}^c \cap A_{k+1}^c.
+        \]
+        But, 
+        \begin{align*}
+            (A_1 \cup A_2 \cup \cdots \cup A_{k} \cup A_{k+1})^c &= ((A_1 \cup A_2 \cup \cdots A_k) \cup A_{k+1})^c \\
+            &= (A_1 \cup A_2 \cup \cdots A_k)^c \cap A_{k+1}^c \\
+            &= (A_1^c \cap A_2^c \cap \cdots \cap A_{k}^c) \cap A_{k+1}^c \\
+            &= A_1^c \cap A_2^c \cap \cdots \cap A_{k}^c \cap A_{k+1}^c \\
+        \end{align*}
+        Which was to be shown. 
+    \end{proof}
+
+    \part Consider the collection of sets $B_i$ such that 
+    \[
+        B_i = \left(0, \frac{1}{i}\right). 
+    \]
+    Then for $n \in \NN$, 
+    \[
+        \bigcap_{i=1}^{n} B_i \neq \varnothing
+    \]
+    since, for example, $\frac{1}{2n} \in \bigcap_{i=1}^{n} B_i$. However, 
+    \[
+        \bigcap_{i=1}^{\infty} B_i = \varnothing
+    \]
+    since as $i \to \infty$, $\frac{1}{i} \to 0$.
+
+    \part \begin{proof} Consider $x \in (\bigcup_{i=1}^{\infty} A_i)^c$. Then $x \not\in \bigcup_{i=1}^{\infty} A_i$. The only way this is possible is if $x \not\in A_i$ for all $i$. Then, $x \in A_i^c$, so 
+    \[
+     x \in \bigcap_{i=1}^{\infty}A_i \Rightarrow \left(\bigcup_{i=1}^\infty A_i\right)^c \subseteq \bigcap_{i=1}^{\infty} A_i^c.
+    \]
+    Taking $x \in \cap_{i=1}^{\infty} A_i^c$, it follows that $x \in A_i^c$ so $x \not\in A_i$ for all $i$. Thus 
+    \[
+        x \not\in \bigcup_{i=1}^{\infty} A_i \Rightarrow x \in \left(\bigcup_{i=1}^\infty A_i\right)^{c} \Rightarrow \bigcap_{i=1}^{\infty} A_i \subseteq \left(\bigcup_{i=1}^{\infty} A_i \right)^c.
+    \]
+    Thus, $\left(\bigcup_{i=1}^{\infty} A_i\right)^c = \bigcap_{i=1}^{\infty} A_i^c$
+    \end{proof}
+\end{parts}
+
+\colorbox{red}{\underline{1.3.9}}
+\begin{parts}
+    \part \begin{proof} Since $\sup A < \sup B$ there exists $x \in \RR$ such that $\sup A < x < \sup B$. Since $x < \sup B$, $x$ is not an upper bound for $B$. This implies the existence of a $b \in B$ such that $x < b$. Combining inequalities we see that $\sup A < x < b$ and therefore $b$ is an upper bound for $A$ since it is greater than $\sup A$. 
+    \end{proof}
+
+    \part Consider the sets $A = B = (0, 1)$. Then $\sup A \leq \sup B = 1$, but there does not exist $b \in B$ such that $b > a$ for any $a \in A$.
+\end{parts}
+
+\colorbox{red}{\underline{1.3.10}}
+\begin{parts}
+    \part \begin{proof} 
+        Consider a fixed $b \in B$. Then $b > a$ for all $a \in A$, by definition of $A$ and $B$, so $A$ is bounded above by $b$. It follows from the Axiom of Completeness that $\sup A = s$ must exist since $A$ is nonempty and bounded. If $s \in A$ then $s = \sup A = \max A$ since 
+        \[
+            s \geq a \quad \forall a \in A 
+        \]
+        by definition of supremum. As well, $s \in A$ implies $s \leq b$ for all $b \in B$ and thus the Cut Property is satisfied. If $s \in B$ then $s \geq a$ for all $a \in A$ by definition of $A$ and $B$, but $s \leq b$ for any $b \in B$ since any $b \in B$ is an upper bound of $A$ is must be greater than or equal to the supremum. Therefore, the Cut Property is also satisfied if $s \in B$. 
+    \end{proof}
+
+    \part \begin{proof}
+        Let $A = \braces{x \mid x \leq e \text{ for some } e \in E}$. Then $E \subset A$ since every element $e \in E$ is less than or equal to some $e \in E$, namely itself. We now define $B = \RR \setminus A$. Thus $A \cap B = \varnothing$ and $A \cup B = \RR$. By the Cut Property, there exists $s \in \RR$ such that $s \geq a$ for all $a \in A$ and $s \leq b$ for all $b \in B$. Then $s = \sup E$ since $s \geq a$ for all $a \in A$, which includes every element of $E$ and if some $x < s$ then $x \not\in B$ so $x \leq e$ which means that $x$ is not a upper bound of $E$. So, $s = \sup E$. 
+    \end{proof}
+
+    \part Consider the two sets 
+    \begin{align*}
+        A &= (-\infty, 0) \cup \braces{x \in \QQ \mid 0 \leq x^2 \leq 2} \\
+        B &= \braces{x \in \QQ \mid x > 0 \land x^2 > 2}.
+    \end{align*}
+    Then, $A \cup B = \QQ$ and $A \cap B = \varnothing$ but there does not exist $s \in \QQ$ such that $a \leq s$ for all $a \in A$ and $s \leq b$ for all $b \in B$ since $\sup A = \sqrt{2} \not\in \QQ$. Thus, the Cut Property does not hold for $\QQ$.
+\end{parts} 
+
+\footnotetext{\LaTeX\, code for this document can be found on github \href{https://github.com/jeevanshah07/MATH311/blob/main/homework/homework1/main.tex}{\underline{here}}}
+
+\end{document}
