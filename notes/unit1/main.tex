@@ -285,3 +285,80 @@ Note that the exists of such an $m$ is intuitive since if the distance between $
         Thus $r' = \sqrt{2}$ is irrational and completes the proof.
     \end{proof}
 \end{coro}
+
+\subsection{Lecture 4}
+\subsubsection{Cardinality [1.5]}
+\begin{defbox}{Cardinality}{}
+    The size of a set is its \textbf{cardinality}, denoted $|A|$. A set can have either finite or infinite cardinality. 
+\end{defbox}
+
+For finite sets $A$ and $B$ one of the following must be true:
+\begin{enumerate}
+    \item $|A| > |B|$
+    \item $|A| < |B|$
+    \item $|A| = |B|$
+\end{enumerate}
+If $A \subsetneq B$ then $|A| < |B|$. \textit{However}, if $A$ and $B$ are \textbf{not finite} then $A \subsetneq B \Rightarrow |A| < |B|$ \underline{is not always true}. 
+
+\begin{defbox}{One-to-one and Onto}{}
+    A function $f: A \to B$ is \textbf{one-to-one} (1-1) if for $a_1, a_2 \in A$, $f(a_2) = f(a_2) \Rightarrow a_1 = a_2$. The function $f$ is \textbf{onto} if $\forall\,b \in B\, \exists\, a \in A \st f(a) = b$.
+\end{defbox}
+Two sets $A$ and $B$ have the same cardinality if there exists a function $f: A \to B$ that is one-to-one and onto. Any function that is both one-to-one and onto is called a bijection. 
+
+If $A$ is an infinite set then there is a subset $A_1 \subset A$ such that there exists $f: A_1 \to \NN$ that is a bijection. We can define $f$ by the map $a_n \mapsto n$ for all $a_n \in A_1$ (i.e. labeling each element of $A_1$).
+
+\begin{defbox}{Countable Sets}{}
+    A set $A$ is called \textbf{countable} if there exists a bijective map $f: A \to \NN$. 
+\end{defbox}
+
+If $A$ is countable then any infinite subset $A_1$ has a bijective map $f: A_1 \to A$.
+\begin{proof}
+    Let $f: A \to \NN$ be one-to-one and onto and $A_1 \subset A$ be infinite. Represent 
+    \[
+        A = \braces{a_1, a_2, \ldots, a_{n_{1}}, a_{n_{2}}, \ldots} 
+    \]
+    for each $a_i = f^{-1}(i)$ and let 
+    \[
+        A_1 = \braces{a_{n_{1}}, a_{n_{2}}, \ldots, a_{n_{k}}, \ldots}.
+    \]
+    Now, define the bijection $g: A_1 \to \NN$ by $a_{n_{k}} \mapsto k$. We can now compose $g$ and $f^{-1}$ to give $g \circ f^{-1}: A_1 \to A$ which is a bijection since the composition of bijections is a bijection.
+\end{proof}
+
+\begin{impbox}{$\ZZ$ is Countable}{}
+    $\ZZ$ is countable. 
+    \begin{proof}
+        Define the bijective map $f: \NN \to \ZZ$ as follows: 
+        \begin{align*}
+            f(1) &= 0 \\
+            f(2n) &= n \\
+            f(2n+1) &= -n
+        \end{align*}
+    \end{proof}
+\end{impbox}
+
+\begin{impbox}{$\NN \times \NN$ is Countable}{}
+    $\NN \times \NN$ is countable.
+    \begin{proof}
+        Consider the map $f: \NN \times \NN \to \NN$ given by $f(m, n) = 2^{m}3^{n}$. $f$ is one-to-one since $2$ and $3$ are prime numbers so the prime factorization of the form $2^{m}3^{n}$ will always be unique. The image $f(\NN \times \NN)$ is a subset of $\NN$ so there must exist $g: f(\NN \times \NN) \to \NN$ that is bijective. By composing $g$ and $f$ we arrive at a bijection from $\NN \times \NN \to \NN$.
+    \end{proof}
+\end{impbox}
+
+We may now generalize: If $A$ and $B$ are countable then $A \times B$ is also countable. 
+\begin{proof}
+    Assume $f_1: A \to \NN$ and $f_2: B \to \NN$ are bijective. Then define the bijective map 
+    \[
+        f_1 \times f_2: A \times B \to \NN \times \NN 
+    \]
+    by
+    \[
+        f_1 \times f_2(a, b) = (f_1(a), f_2(b)).
+    \]
+    Since $\NN \times \NN$ is countable there must exists a function $g: \NN \times \NN \to \NN$ that is bijective so $g \circ (f_1 \times f_2): A \times B \to \NN$ is also bijective.
+\end{proof}
+
+\begin{impbox}{$\QQ$ is Countable}{}
+    $\QQ$ is countable. 
+    \begin{proof}
+        Consider $\QQ = \braces{p/q \mid q \in \NN, p \in \ZZ}$ with $p, q$ co-prime. Define $f: \QQ \to \ZZ \times \NN$ by $f(p/q) = (p, q)$. Since $\ZZ$ and $\NN$ are countable, there must exist a function $h: \ZZ \times \NN \to \NN$ that is bijective. So $h \circ f: \QQ \to \NN$ is bijective. 
+    \end{proof}
+\end{impbox}
