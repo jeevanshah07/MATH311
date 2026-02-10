@@ -362,3 +362,50 @@ We may now generalize: If $A$ and $B$ are countable then $A \times B$ is also co
         Consider $\QQ = \braces{p/q \mid q \in \NN, p \in \ZZ}$ with $p, q$ co-prime. Define $f: \QQ \to \ZZ \times \NN$ by $f(p/q) = (p, q)$. Since $\ZZ$ and $\NN$ are countable, there must exist a function $h: \ZZ \times \NN \to \NN$ that is bijective. So $h \circ f: \QQ \to \NN$ is bijective. 
     \end{proof}
 \end{impbox}
+
+\subsection{Lecture 5}
+\subsubsection{Cardinality (cont.) [1.5]}
+\begin{defbox}{Power Sets}
+    The power set of a nonempty set $A$ is the set of all subset of $A$. The power set is denoted $\mathcal{P}(A)$.
+\end{defbox}
+
+For example, if $A = \braces{1, 2, 3}$, then 
+\[
+    \mathcal{P}(A) = \braces{
+        \braces{1}, \braces{2}, \braces{3}, \braces{1, 2}, \braces{1, 3}, \braces{2, 3}, \braces{1, 2, 3}
+    }.
+\]
+Note that the sets $\braces{1, 3}$ and $\braces{3, 1}$ are considered identical.
+
+\begin{thm}{}{\label{thm:1.7}}
+    For any nonempty set $A$, there is no onto map from $A$ to $\mathcal{P}(A)$
+    \begin{proof}
+        Arguing by contradiction assume $f: A \to \mathcal{P}(A)$ is onto. Let 
+        \[
+            C = \braces{x \in A \mid x \not\in f(x)}.
+        \]
+        Then, $C$ must be nonempty for if $C = \varnothing$ then $x \in f(x)$ for all $x \in A$. But, since $f$ is onto, for every singleton set $\braces{x}$ there must exists $y \in A$ such that $f(y) = \braces{x}$, however this means that $y = x$ and so $f$ cannot be onto (since there are sets of more than one element in $\mathcal{P}(A)$), thus $C \neq \varnothing$. Now, because $f: A \to \mathcal{P}(A)$ is onto and $C \in \mathcal{P}(A)$ (by definition of a power set), it follows that there must exist an $a \in A$ such that $f(a) = C$. This would imply that $a \not\in C$, but by definition that means $a \in C$ which is a contradiction. On the other hand, if $a \not\in C$ from the start, we arrive at the same contradiction since the definition of $C$ once again implies that $a \in C$. Thus, our supposition must be false and there cannot exists an onto map $f: A \to \mathcal{P}(A)$.  
+    \end{proof}
+\end{thm}
+
+It follows from Thm~(\ref{thm:1.7}) that $|\mathcal{P}(A)| > |A|$ for every set $A$, finite or infinite. \\
+We can also prove that for every set $A_n$ that is countable, 
+\[
+    \bigcup_{i=1}^{\infty} A_i
+\]
+is also countable.
+\begin{proof}
+    Let $B_1 = A_1, B_2 = A_1 \setminus A_2, B_3 = A_3 \setminus A_1 \cup A_2$, and 
+    \[
+        B_n = A_n \setminus \bigcup_{i=1}^{n-1} A_{i} 
+    \]
+    for all $n$. Then, 
+    \[
+        \bigcup_{i=1}^{\infty} A_i = \bigcup_{i=1}^{\infty} B_i.
+    \]
+    We represent $B$ in the following manner: for each $B_n$ mark the elements as $b_{n1}, b_{n2}, \ldots, b_{nn}, \ldots$ so that 
+    \[
+        B_n = \braces{b_{n1}, b_{n2}, \ldots, b_{nn}, \ldots} 
+    \]
+    for all $n$. Now, define the injective map $f: \bigcup B_n \to \NN \times \NN$ by $b_{ij} \mapsto (i, j)$ for all $b_{ij} \in \bigcup B_n$. Then, since $\NN \times \NN$ is countable, there exists a map $g: \NN \times \NN \to \NN$ that is bijective, so $g \circ f: \bigcup B_n \to \NN$ is also bijective. Since $\bigcup B_n = \bigcup A_n$, the union of all the countable sets must also be countable. 
+\end{proof}

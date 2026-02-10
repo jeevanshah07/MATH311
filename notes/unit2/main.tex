@@ -1,0 +1,12 @@
+\section{Unit 2: Sequences and Series}
+\subsection{Lecture 5 (cont.)}
+\subsubsection{The Limit of a Sequence}
+\begin{defbox}{Sequences}
+    A sequence is a function $f: \NN \to \RR$ for $n \mapsto f(n) = a_n$. 
+\end{defbox}
+
+\begin{defbox}{Convergence of a Sequence}
+    A sequence $(a_n)$ converges to a real number $a \in \RR$ if for every $\epsilon > 0$, there exists a $N \in \NN$ such that for $n \geq N, |a_n - n| < \epsilon$.
+\end{defbox}
+
+We can apply this by asking, for example, is $a_n = n$ a convergent sequence? This is obviously divergent and we can prove it using the definition since for any $N \geq 2$, $a_n - a > 1$ which means there exist values of $\epsilon > 0$, namely $\epsilon < 1$ such that $a_n - a > \epsilon$. Thus, $(a_n)$ must not converge. Another example is asking if $a_n = \frac{1}{n}$ is a convergent sequence. We know $(a_n)$ is convergent because it converges to $0$ so $|\frac{1}{n} - 0| = \frac{1}{n} < \epsilon$ for $n \geq N$ sufficiently large (specifically $N = \frac{1}{\epsilon}$).
