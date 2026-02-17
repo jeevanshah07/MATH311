@@ -10,3 +10,287 @@
 \end{defbox}
 
 We can apply this by asking, for example, is $a_n = n$ a convergent sequence? This is obviously divergent and we can prove it using the definition since for any $N \geq 2$, $a_n - a > 1$ which means there exist values of $\epsilon > 0$, namely $\epsilon < 1$ such that $a_n - a > \epsilon$. Thus, $(a_n)$ must not converge. Another example is asking if $a_n = \frac{1}{n}$ is a convergent sequence. We know $(a_n)$ is convergent because it converges to $0$ so $|\frac{1}{n} - 0| = \frac{1}{n} < \epsilon$ for $n \geq N$ sufficiently large (specifically $N = \frac{1}{\epsilon}$).
+
+\subsection{Lecture 6}
+\subsubsection{The Limit of a Sequence (cont).}
+\begin{example}{}{}
+    Justify $\lim_{n\to\infty} \frac{1}{n^2} = 0$.
+    \begin{solution}
+        $\forall \epsilon > 0$, take $N > \frac{1}{\sqrt{\epsilon}}$ since 
+        \[
+            \frac{1}{N^2} < \epsilon \Leftrightarrow \frac{1}{\epsilon} < N^2 \Leftrightarrow \frac{1}{\sqrt{\epsilon}} < N.
+        \]
+        So, when $n \geq N$, 
+        \[
+            \left|\frac{1}{n^2} - 0\right| = \frac{1}{n^2} < \frac{1}{N^2} < \epsilon. 
+        \]
+    \end{solution}
+\end{example}
+
+\begin{example}{}{}
+    Justify 
+    \[
+        \lim_{n\to\infty} \frac{2n+1}{5n+3} = \frac{2}{5} 
+    \]
+    \begin{solution}
+        $\forall \epsilon > 0, \exists N \in \NN \st n \geq N \Rightarrow \left|\frac{2n+1}{5n+3} - \frac{2}{5}\right| < \epsilon$.
+        \begin{align*}
+            \left|\frac{2n+1}{5n+3} - \frac{2}{5}\right| &= \left|\frac{5(2n+1) - 2(5n+3)}{5(5n+3)}\right| \\
+            &= \left|\frac{10n + 5 - 10n - 6}{25n + 15}\right| \\
+            &= \frac{1}{25n + 5} < \frac{1}{25n} < \frac{1}{N} < \epsilon \\
+        \end{align*}
+        Thus, take $N > \frac{1}{\epsilon}$ so for $n \geq N$ we have $|a_n - \frac{2}{5}| < \epsilon$.
+    \end{solution}
+\end{example}
+
+\begin{example}{}{}
+    Justify 
+    \[
+        \lim_{n\to\infty} \frac{2n^2}{n^3 + 3} = 0
+    \]
+    \begin{solution}
+        We must find $N \in \NN$ such that $\forall n \geq N$, 
+        \[
+            \left|\frac{2n^2}{n^3 + 3} - 0\right| < \epsilon.
+        \]
+        Consider 
+        \[
+            \left|\frac{2n^2}{n^3 + 3} - 0\right| = \frac{2n^2}{n^3 + 3} < \frac{2n^2}{n^3} = \frac{2}{n} \leq \frac{2}{N}  < \epsilon.
+        \]
+        Thus, take $N > \frac{2}{\epsilon}$.
+    \end{solution}
+\end{example}
+
+\begin{example}{}{}
+    Justify 
+    \[
+        \lim_{n\to\infty} \frac{\sin n^2}{n^{1/3}} = 0 
+    \]
+    \begin{solution}
+        \[
+            \left|\frac{\sin n^2}{n^{1/3}} - 0\right| = \frac{|\sin n^2|}{n^{1/3}} \leq \frac{1}{n^{1/3}} < \epsilon \Rightarrow \frac{1}{\epsilon^3} < N.
+        \]
+        Take $N > \frac{1}{\epsilon^3}$.
+    \end{solution}
+\end{example}
+
+\begin{thm}{}{}
+    Assume $a_n \to a$. Then there is $M \in \RR \st |a_n| \leq M \,\forall n$. 
+    \begin{proof}
+        Given $\epsilon = 1$, since $(a_n) \to a \Rightarrow \exists N \in \NN \st n \geq N \Rightarrow |a_n - a| < 1$. So, 
+        \[
+            |a_n| = |a_n - a + a| \leq |a_n - a| + |a| \leq 1 + |a|.
+        \]
+        Then 
+        \[
+            M = \max\braces{|a_1|, |a_2|, \ldots, |a_N|, 1 + |a|}. 
+        \]
+    \end{proof}
+\end{thm}
+
+\subsection{The Algebra and Order Limit Theorems}
+\begin{thm}{}{}
+    Let $\lim a_n = a$ and $\lim b_n = b$. Then 
+    \begin{enumerate}
+        \item $\lim ca_n = ca$ 
+        \item $\lim a_n + \lim b_n = a + b$
+        \item $\lim a_n b_n = ab$ 
+        \item $\lim a_n/b_n = a/b$ for $b \neq 0$
+    \end{enumerate}
+
+    \begin{proof}
+        \begin{enumerate}
+            \item We need to show $\forall \epsilon > 0, (\exists N \in \NN \st n \geq N \Rightarrow |ca_n - a| < \epsilon)$.
+                \[
+                    |ca_n - ca| = c(a_n - a) = |c||a_n - a| < \epsilon 
+                \]
+            Because $(a_n) \to a \, \forall \frac{\epsilon}{|c|} > 0, \, \exists N \st n \geq N \Rightarrow |a_n - a| < \frac{\epsilon}{|c|}$. So, for $n \geq N$
+            \[
+                |c||a_n - a| \leq |c|\frac{\epsilon}{|c|} = \epsilon 
+            \]
+            \item We need to show $\forall \epsilon > 0, (\exists N \in \NN \st n \geq N \rightarrow |(a_n + b_n) - (a + b) < \epsilon)$. But, 
+            \[
+                |a_n - b_n - (a + b)| = |a_n - a + b_n - b| < |a_n - a| + |b_n - b|
+            \]
+            Because $\lim a_n = a\, \exists N_1 \in \NN \Rightarrow |a_{N_1} - a | < \frac{\epsilon}{2}$ and $\lim b_n = b\, \exists N_2 \in \NN \Rightarrow |b_{N_2} - b| < \frac{\epsilon}{2}$. Chose $N = \max\braces{N_{1}, N_{2}}$, then for $n \geq N$, 
+            \[
+                |a_n - a| < \frac{\epsilon}{2} \quad\text{and}\quad |b_n - b| < \frac{\epsilon}{2}. 
+            \]
+            So, 
+            \[
+                |a_n + b_n - (a + b)| < |a_n - a| + |b_n - b| < \epsilon
+            \]
+            \item We need to show $\forall \epsilon > 0, (\exists N \in \NN \st n \geq N \Rightarrow |a_n b_n - ab| < \epsilon)$. But, 
+            \begin{align*}
+                |a_n b_n - ab| &= |a_n b_n - ab_n + ab_n - ab| \\
+                &\leq |a_n b_n - ab_n| + |ab_n - ab| \\
+                &= |a_n - a||b_n| + |a||b_n - b| \\
+                &\leq M|a_n - a| + |a||b_n - b| \tag{assuming $|b_n| < M\, \forall n$}
+            \end{align*}
+            Then, since $\lim a_n = a, \exists N_2 \in \NN \Rightarrow |a_n - a| < \frac{\epsilon}{2M}$ and $\lim b_n = b \Rightarrow, \exists N_{2} \in \NN \Rightarrow |b_n - b| < \frac{\epsilon}{2|a|}$ for $n > N_1$ and $n > N_2$, respectively. Take $N = \max\braces{N_1, N_2}$, then for $n \geq N$, 
+            \[
+                |a_n b_n - ab| \leq |a_n - a||b_n| + |a||b_n - b| < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon 
+            \]
+            \item We need to show $\forall \epsilon > 0, (\exists N \in \NN \st n \geq N \Rightarrow \left|\frac{a_n}{b_n} - \frac{a}{b}\right| < \epsilon)$. But, 
+            \[
+                \lim \frac{1}{b_n} = \frac{1}{b} 
+            \]
+            since 
+            \[
+                \left|\frac{1}{b_n} - \frac{1}{b}\right| = \left|\frac{b_n - b}{b_n b}\right| < \frac{|b_n - b|}{\frac{|b|}{2}|b|} \Rightarrow |b_n - b| < \frac{\epsilon}{2}|b|^2.
+            \]
+            The proof is then completed by applying property $(3)$.
+        \end{enumerate}
+    \end{proof}
+\end{thm}
+
+\subsection{Lecture 7}
+\subsubsection{Order and Limit Theorems (cont.)}
+\begin{thm}{Order limit}{}
+    Assume $(a_n) \to a, (b_n) \to b$. 
+    \begin{enumerate}
+        \item If $a_n \geq 0$, then $a \geq 0$
+        \item If $a_n \leq b_n$, then $a < b$
+        \item If $c \leq b_n$, then $c < b$. If $c \geq a_n$, then $c > a$.
+    \end{enumerate} 
+
+    \begin{proof} 
+        \begin{enumerate}
+            \item Arguing by contradiction assume $a < 0$. Take $\epsilon = \frac{|a|}{2}$. Then,
+            \[
+                |a_n - a| \geq |a| 
+            \]
+            since $a$ is negative. Then $|a_n - a| \geq |a| > \epsilon$ which contradicts $(a_n)$ converging.
+            \item By the algebra of limits, 
+            \begin{align*}
+                a_n \leq b_n &\Rightarrow 0 \leq b_n - a_n \\
+                &\Rightarrow (b_n - a_n) \to b - a \\
+                &\Rightarrow 0 \leq b - a \tag{By property $(1)$}\\
+                &\Rightarrow a \leq b
+            \end{align*}
+            \item Take $(c_n) \to c$ as the constant sequence, then apply property $(2)$.
+        \end{enumerate}
+    \end{proof}
+\end{thm}
+
+\begin{example}{}{}
+    Does the sequence $a_{n+1} = \sqrt{2 + a_n}$ converge? If so, what is the limit?
+    \begin{solution}
+        Yes $a_n$ converges because $a_n$ is bounded and increasing. We can find the limit by considering the set $A = \braces{a_n}$ which is bounded above. Then let $a = \sup A$ so $a_n \to a$.
+    \end{solution}
+\end{example}
+
+\subsubsection{Montone Convergence Thm \& a first look at infinite series}
+\begin{defbox}{Monotone}{}
+    We say a sequence is \textbf{monotone increasing}, $(a_n) \uparrow$, if $a_{n+1} \geq a_{n}$. We say a sequence is \textbf{monotone decreasing}, $(a_n) \downarrow$, if $a_{n+1} \leq a_{n}$.
+\end{defbox}
+
+\begin{example}{}{}
+    Show that $a_{n+1} = \sqrt{2 + a_n}, a_1 = \sqrt{2}$ is monotone increasing.
+    \begin{solution}
+        By induction, $a_1 = \sqrt{2}$ and $a_2 = \sqrt{2 + \sqrt{2}}$, so $a_1 \leq a_2$. Assume $a_n \geq a_{n-1}$. We must show $a_{n+1} = \sqrt{2 + a_n} \geq \sqrt{2 + a_{n-1}} = a_n$. But, $a_n \geq a_{n-1}$, so we are done.
+    \end{solution}
+\end{example}
+
+\begin{thm}{}{}
+    If $(a_n)$ is montone and bounded, then $(a_n)$ converges. 
+    \begin{proof}
+        Assume $(a_n)\uparrow$ so $A = \braces{a_n}$ is bounded. Then $a = \sup \braces{a_n} \in \RR$. We show that $(a_n) \to a$. By definition of supremum, $\forall \epsilon > 0, a - \epsilon < a_k$ for some $a_k \in A$. Then, for $n \geq k$, $a - \epsilon \leq a_k \leq a_n \Leftrightarrow 0 \leq a - a_n < \epsilon \Leftrightarrow |a - a_n| < \epsilon$ for $n \geq k$. Note that $a - a_n \geq 0$ since $a \geq a_n$ for all $n$ by definition of supremum. So $(a_n) \to a$.
+    \end{proof}
+\end{thm}
+
+\begin{example}{}{}
+    Show $a_{n+1} = \sqrt{2 + a_n}, a_1 = \sqrt{2}$ is bounded above by $2$.
+    \begin{solution}
+        By induction, $a_1 = \sqrt{2} < 2$. Assume $a_n < 2$. Then $a_{n+1} = \sqrt{2 + a_n} < \sqrt{2 + 2} = 2$. So $a_n < 2$ for all $n \in \NN$.
+    \end{solution}
+\end{example}
+
+\begin{example}{}{}
+    For the above sequence, find what $a_n$ converges to. 
+    \begin{solution}
+        Since $(a_n)$ is bounded and monotone increasing we know that $(a_n) \to a$ for $a \in \RR$. Then 
+        \begin{align*}
+            a_{n+1} = \sqrt{2 + a_n} &\to a = \sqrt{2 + a} \\
+            &\Rightarrow a^2 - a - 2 = 0 \\
+            &\Rightarrow (a-2)(a+1) = 0 \\
+            &\Rightarrow a = 2, -1
+        \end{align*}
+        Since $a_n \geq 0\, \forall n \in \NN, a \not < 0$, so $a = 2$ and $(a_n) \to 2$. 
+    \end{solution}
+\end{example}
+
+\begin{example}
+    Is $a_{n+1} = \sqrt{2a_n}, a_1 = \sqrt{2}$ convergent?
+    \begin{solution}
+        By induction $a_1 < a_2$ since $a_1 = \sqrt{2}$ and $a_2 = \sqrt{2\sqrt{2}}$. Assume $a_n > a_{n-1}$. Then
+        \[
+            a_{n+1} = \sqrt{2a_n} > \sqrt{2a_{n-1}} = a_n 
+        \]
+        since $a_n > a_{n-1}$. Also by induction $a_1 = \sqrt{2} < 2$. Assume $a_ < 2$. Then, 
+        \[
+            a_{n+1} = \sqrt{2a_n} < \sqrt{2 \cdot 2} = 2.
+        \]
+        So, $a_n < 2$ for all $n \in \NN$. Since $(a_n)\uparrow$, we know $(a_n) \to a$ for $a \in \RR$. Then, 
+        \begin{align*}
+            a_{n+1} = \sqrt{2a_n} &\to \sqrt{2a} \\
+            &\Rightarrow a^2 = 2a \\
+            &\Rightarrow a(a-2) = 0 \\
+            &\Rightarrow a = 0, 2
+        \end{align*}
+        Since $a \neq 0$ (because $a_1 > 0$), $a = 2$ and $(a_n) \to 2$.
+    \end{solution}
+\end{example}
+
+\subsection{Lecture 8}
+\subsubsection{Montone Convergence Thm \& a first look at infinite series (cont.)}
+\begin{defbox}{Series}{}
+    A \textbf{series} is a sequence of partial sums 
+    \[
+        S_n = \sum_{i=1}^{n} a_{i}.
+    \]
+    A series converges to $a$ when the sequence of partial sums converges to $a$.
+\end{defbox}
+
+\begin{thm}{}{}
+    Given a series, $\sum a_n$, assume $a_n$ is nonnegative. If $S_n \leq M$ for all $n$, then $S_n \to a$ i.e. $\sum a_n = a$.
+\end{thm}
+
+\begin{example}{}{}
+    Determine if $\sum \frac{1}{n}$ converges.
+    \begin{solution}
+        The series is not convergence because the sequence of partial sums is unbounded. For every grouping of $2^n$ term, their sum will be greater than or equal to $\frac{1}{2}$ since $2^{n} \cdot \frac{1}{2^{n+1}} = \frac{1}{2}$. 
+        \[
+            \underbrace{1}_{\geq \frac{1}{2}}
+            +
+            \underbrace{\frac{1}{2}}_{\geq \frac{1}{2}}
+            +
+            \underbrace{\left(\frac13 + \frac14\right)}_{\geq \frac{1}{2}}
+            +
+            \underbrace{\left(\frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8}\right)}_{\geq \frac{1}{2}}
+            + \cdots + 
+            \underbrace{\left(\frac{1}{2^n + 1} + \cdots + \frac{1}{2^{n+1}}\right)}_{\geq \frac{1}{2}} + \cdots \geq \frac{n}{2}
+        \]
+    \end{solution}
+\end{example}
+
+\begin{example}{}{}
+    Determine if $\sum \frac{1}{n^2}$ converges.
+    \begin{solution}
+        Since $\frac{1}{n^2} > 0$, $\sum \frac{1}{n^2}$ converges if, and only if, the sequence of partial sums is bounded. This series is convergent by the integral test. We may also consider 
+        \begin{align*}
+            S_n = 1 + \frac{1}{2^2} + \frac{1}{3^2} + \cdots + \frac{1}{n^2} &\leq 1 + \left(1 - \frac{1}{2}\right) + \left(\frac{1}{2} - \frac{1}{3}\right) + \cdots + \left(\frac{1}{n-1} - \frac{1}{n}\right) \\
+            &\leq 2 - \frac{1}{n} \\
+            &\leq 2
+        \end{align*}
+        Thus, since the partial sums are bounded, they are convergent, so the infinite series is also bounded and convergent. 
+    \end{solution}
+\end{example}
+
+\subsubsection{Subsequences and the Bolzana-Weierstrass Thm}
+\begin{thm}{Bolzano-Weierstrass}
+    Any bounded sequence contains a convergent subsequence.
+    \begin{proof}
+        Assume $(a_n) \subset [-M, M]$. Split the interval $[-M, M]$ into $[-M, 0]$ and $[0, M]$. One of these intervals must have an infinite amount of terms of $(a_n)$. Choose the one with infinite terms and label it $I_1$. Choose some $a_{n_{1}} \in I_1$, then divide $I_1$ into two seperate halves. Once again, one half will contain an infinite amount of terms from which we may choose $a_{n_{2}} \in I_2$ such that $n_2 > n_1$. We repeat this process of halving $I_{k-1}$ to form $I_{k}$ and selecting $a_{n_{k}} \in I_k$ such that $n_k > n_{k_{1}} > \cdots > n_2 > n_1$. This then forms a convergent sequence with $(a_{n_{k}}) \to x$ where $x$ is the supremum of all the left end-points of each interval $I_k$ (which exists by the nested interval property of $\RR$).
+    \end{proof}
+\end{thm}
