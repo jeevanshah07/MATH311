@@ -1,0 +1,197 @@
+\section{Unit 3: Basic Topology of $\RR$}
+\subsection{Lecture 12}
+Consider the Canto set, $C \subseteq \RR$ constructed as follows: 
+\begin{align*}
+    C_1 &= [0, 1] \setminus \left(\frac{1}{3}, \frac{2}{3}\right) = \left[0, \frac{1}{3}\right] \cup \left[\frac{2}{3}, 1\right], \\
+    C_2 &= \left[0, \frac{1}{3}\right] \setminus \left(\frac{1}{9}, \frac{2}{9}\right) \cup \left[\frac{2}{3}, 1\right] \setminus \left(\frac{7}{9}, \frac{8}{9}\right), \\
+    &\vdots \\
+    C &= \bigcup_{n=1}^{\infty} C_n \neq \varnothing
+\end{align*}
+
+\begin{lma}{}
+    $C$ is not countable.
+    \begin{proof}
+        Consider $x \in C$. Then, $x \in C_1$ so either $x \in \left[0, \frac{1}{3}\right]$ or $x \in \left[\frac{2}{3}, 1\right]$. If $x \in \left[0, \frac{1}{3}\right]$ let $a_1 = 0$ and if $x \in \left[\frac{2}{3}, 1\right]$ let $a_1 = 1$. Continue in this way, constructing $a=0.a_1a_2a_3\ldots$ where $a_i = 0$ if $x$ is in the left interval and $a_i = 1$ if $x$ is in the right interval of $C_i$. Defined $F: C \to \braces{0.a_1a_2\ldots}$ by this rule. Since $\braces{0.a_1a_2a_3\ldots \mid a_i = 0 \text{ or } a_i = 1}$ is uncountable, and $f$ is a bijection, $|C| = |\braces{0.a_1a_2a_3\ldots}| = |\RR|$ so $C$ is also uncountable.
+    \end{proof}
+\end{lma}
+
+\begin{lma}{}
+    The length of $C$ is $0$.
+    \begin{proof}
+        Notice that $[0, 1] = C \cup \left([0, 1] \setminus C\right)$. But 
+        \begin{align*}
+            \text{length } [0, 1] \setminus C  &= \frac{1}{3} + 2\left(\frac{1}{9}\right) + 4\left(\frac{1}{27}\right) + \cdots \\
+            &= \sum \frac{2^n}{3^{n+1}} = \frac{1/3}{1 - 2/3} = 1
+        \end{align*}
+        Since the length of $[0, 1]$ alone is $1$, it follows that the length of $C$ must be $0$ since length $[0, 1] \setminus C = 1$.
+    \end{proof}
+\end{lma}
+
+\begin{lma}{}
+    The dimension of $C$ is $\dim(C) = \ln 2 / \ln 3$
+    \begin{proof}
+        If you triple the interval and apply the rule to construct the cantor set we can see that 
+        \[
+            [0, 3] \to [0, 1] \cup [2, 3] 
+        \]
+        so we get `two' cantor sets. Then, if $\dim(C) = x$, 
+        \[
+            2 = 3^x \Rightarrow x = \ln2 / \ln 3
+        \]
+        which was to be shown.
+    \end{proof}
+\end{lma}
+
+\subsection{Lecture 13}
+\subsubsection{3.2: Open and Closed Subsets}
+\begin{defbox}{}{}
+    A set $O \subseteq \RR$ is open if for all points $x \in O$ there exists an epsilon neighborhood entired contained in $O$. 
+\end{defbox}
+
+We consider the empty set to be open.
+
+\begin{example}{Examples of Open Sets}{}
+    \begin{itemize}
+        \item $\NN \subset \RR$ is not open
+        \item $\ZZ \subset \RR$ is not open
+        \item $\QQ \subset \RR$ is not open
+        \item Any open set $O = (a, b)$ is open 
+        \item Any closed set $[a, b]$ is not open
+    \end{itemize}
+\end{example}
+
+\begin{thm}{}{}
+    The following statements are true about open sets:
+    \begin{enumerate}
+        \item The union of an arbitrary collection of open sets (i.e. $\braces{O_{\lambda} \mid \lambda \in \Lambda})$ is open.
+        \item The intersection of a finite collection of open sets is open.
+    \end{enumerate}
+    \begin{proof}
+        \phantom{x} 
+        \begin{enumerate}
+            \item For all $x \in \bigcup_{\lambda \in \Lambda} O_\lambda \Rightarrow x \in O_{\lambda_{0}}$ open, so $(x - \epsilon_0, x + \epsilon_0) \subset \bigcup_{\lambda \in \Lambda} O_\lambda$ for some $\epsilon_0 > 0$.
+
+            \item For all $x \in \bigcap_{n=1}^{k} O_n \Rightarrow x \in O_k$ open for all $k$. Then, there exists $\epsilon_k$ such that $(x - \epsilon_k, x + \epsilon_k) \subset O_k$. Let $\epsilon_0 = \min\braces{\epsilon_1, \epsilon_2, \ldots}$. Then $(x - \epsilon_0, x + \epsilon_0) \subset (x - \epsilon_k, x + \epsilon_k) \subset O_k$. Thus, $(x - \epsilon_0, x + \epsilon_0) \subset \bigcap_{k=1}^{n} O_k$
+        \end{enumerate}
+    \end{proof}
+\end{thm}
+
+\begin{defbox}{Limit Point}{}
+    Let $A \subseteq \RR$. Then $x \in \RR$ is called a limit point of $A$ if any $\epsilon$-neighborhood, $V_{\epsilon}(x) \cap A \ni y \neq x$.
+\end{defbox}
+
+\begin{example}{Which sets have limit points?}{}
+    \begin{itemize}
+        \item $\NN$ has no limit points 
+        \item $\ZZ$ has no limit points 
+        \item $A = (a, b)$ has limits points (in fact, the limit points of $A$ are $[a, b]$)
+        \item $A = \braces{\frac{1}{n}}_{n=1}^{\infty}$ has a single limit point of $0$.
+    \end{itemize}
+\end{example}
+
+If $A = (0, 1) \cap \QQ$ and $B = (0, 1) \cap (\RR \setminus \QQ)$, then the set of limit points of $A$ and $B$ is $[0, 1]$.
+
+\begin{defbox}{Closed Sets}{}{}
+    A set $F \subseteq \RR$ is closed if $F$ contains all its limit points. 
+\end{defbox}
+
+Sets with no limit points, like $\NN$ and $\ZZ$ are also considered closed.
+
+\begin{thm}{}{}
+    A set $F$ is closed if and only if every cauchy sequence in $F$ has a limit in $F$.
+
+    \begin{proof}
+        $(\Rightarrow)$ Assume $F$ is closed. Let $x_n \in F$ be cauchy so $x_n \to x \in \RR$. If $x_n = x_0$ then $x_n \to x_0 \in F$ since $x_n \in F$. Otherwise, $x$ is a limit point by definition of closed sets. So $x \in F$. \\
+        $(\Leftarrow)$ Assume any cauchy sequence $x_n \in F$ converges to $x_n \to x \in F$. To show $F$ is closed, we must show $x \in F$ if $x$ is a limit point of $F$. By assumption there exists $x_n \in F(x_n \neq x), x_n \to x$. Choose $x_n \in \left(x - \frac{1}{n}, x + \frac{1}{n}\right) \cap F \setminus \braces{0} \neq \varnothing$ so $\braces{x_n}$ is Cauchy. Thus, $x_n \to x \in F$.
+    \end{proof}
+\end{thm}
+
+\begin{defbox}{Closure}{}{}
+    Let $A \subseteq \RR$. We call $\bar{A} = A \cup L$ the closure of $A$ where $L$ is the set of limit points of $A$.
+\end{defbox}
+
+\begin{thm}{}
+    For any $A \subseteq \RR$, $\bar{A}$ is a closed set and the smallest closed set contained $A$.
+
+    \begin{proof}
+        Let $x$ be a limit point of $\bar{A}$. Then $x_n \in \bar{A}, x_n \to x$. If $x_{n_{k}} \in A \Rightarrow x$ is a limit point of $A \Rightarrow x \in L \Rightarrow x \in \bar{A} = A \cup L$. Otherwise $x_n \in L$ then $x_n \in L \Rightarrow y_n \in \left(x_n - \frac{1}{n}, x_n + \frac{1}{n}\right) \cup A \setminus \braces{x_n} \Rightarrow y_n \in A$. \\ Assume $B$ is closed and $A \subseteq B$. Then $B \supseteq A \cup L = \bar{A}$, so $x_n \in A \to x \in L$ but $A \cup L \subseteq B$ so $x \in B$.
+    \end{proof}
+\end{thm}
+
+\subsection{Lecture 14}
+\subsubsection{3.3: Compact Sets}
+\begin{defbox}{Compact Sets}{}{}
+    A set $K \subseteq \RR$ is compact if every sequence in $K$ contains a convergent subsequence and the limit point also in $K$.
+\end{defbox}
+
+\begin{thm}{}{}
+    A set $K \subseteq \RR$ is compact if and only if $K$ is bounded and closed.
+    
+    \begin{proof}
+        $(\Rightarrow)$ Assume $K$ is compact. Let $x$ be a limit point of $K$. Then, by definition, there exists $x_n \in K$ such that $x_n \to x$. Since $K$ is compact, $x \in K$ and so $K$ is clsoed. Arguign by contradiction, assuming $K$ is not bounded implies that $x_n \in K$ diverges to $\pm\infty$. This contradicts the fact that $K$ is compact since if $x_n \to \pm\infty$ then the subsequence $x_{n_{i}}$ must also diverge, but by compactness, all sequences in $K$ must contain a convergent subsequence. \\
+        $(\Leftarrow)$ Assume $K$ is closed and bounded. Any sequence $x_n \in K$ contains a comvergent subsequence $x_{n_k} \to x \in K$ since $x_n$ is bounded ($K$ is bounded) by the Bolzano-Weirestrass Theorem and closedness, $x_n \to x \in K$. So, $K$ is compact since every sequence has a subsequences that converges to a point in $K$.
+    \end{proof}
+\end{thm}
+
+\begin{thm}{Nested Compact Sets}{}
+    Assume $K_n$ are compact sets such that 
+    \[
+        K_1 \supseteq K_2 \supseteq \cdots \supseteq K_n \supseteq \cdots.
+    \]
+    Then, 
+    \[
+        \bigcap_{n=1}^{\infty} K_n \neq \varnothing 
+    \]
+
+    \begin{proof}
+        Let $\inf K_1 = a_1 \in K_1$ (since $K_1$ is closed, $a_1 \in K_1$). In this manner, define 
+        \[
+            a_n \in K_n \subseteq K_1 
+        \]
+        so that $a_n$ is monotone increasing and bounded by $\sup K_1$. By the monotone convergence theorem, $a_n \to a$. For any $n, a \in K_n$ so $a \in \bigcap_{n=1}^{\infty} K_n \neq \varnothing$.
+    \end{proof}
+\end{thm}
+
+\begin{defbox}{Open Cover}{}
+    Let $A \subseteq \RR$ and $\braces{Q_{\lambda} \mid \lambda \in \Lambda}$ with $Q_\lambda$ open. Then $\braces{Q_\lambda \mid \lambda \in \Lambda}$ is an open cover for $A$ if $A \subseteq \bigcup_{\lambda \in \Lambda} Q_{\lambda}$. We say an open cover contains a finite supercover if $Q_{\lambda_1} \cup \cdots \cup Q_{\lambda_{k}} \supseteq A$.
+\end{defbox}
+
+For example, if $A = (0, 1)$ and $Q = (0, 1)$ such that $Q_n = \left(\frac{1}{n}, 1\right)$. Then $\braces{Q_n}_{n=2}^\infty$ is an open cover for $(0, 1)$.
+
+\begin{thm}{}
+    The following properties are equivalent
+    \begin{enumerate}
+        \item $K$ is compact
+        \item $K$ is closed and bounded
+        \item Any open cover for $K$ contains a finite subcover
+    \end{enumerate}
+
+    \begin{proof}
+        Assume $K$ is closed and boudned. Given $K$ an open cover $\braces{Q_\lambda \mid \lambda \in \Lambda}$. Arguing by contradiction, assume there is no finite subcover. Since $K$ is bounded, $K \subseteq [-M, M]$. Then $K = K \cap [-M, M] = K \cap ([-M, 0] \cup [0, M])$. One of these must not be finitelly covered so WLOG assume $K \cap [0, M]$ is not finitely covered and continue to split the interval as before. Define $K_n = K \cap [a_b, b_n]$ with $b_n - a_n = \frac{M}{2^{n-1}}$. As $n \to \infty$, the interval shrinks to a single values, so it must be covered by a single $Q_{\lambda_0}$. This is our contradiction and so our supposition must be false. \\
+        Now assume that any open cover for $K$ contains a finite subcover. Arguing by contradiction, assume $K$ is not compact. Then, $K = \cup_{x \in K} (x - 1, x + 1)$ is an open cover so there exist a finite subcover $(x_1 - 1, x_1 + 1) \cup \cdots \cup (x_k - 1, x_k + 1)$ so $K$ is bounded, $K \subset [\min\braces{x_k} - 1, \max{x_k} + 1]$. Then, applying the BW theorem, so $x_{n_k} \to x$. If $x \not\in K$ then for any $y \neq x \in K, x \not\in (y - \delta_y, y + \delta_y)$ so $K \subseteq \bigcup_{y \in K} (y - \delta_y, y + \delta_y)$. Then $(y_1 - \delta_1, y_1 + \delta_1) \cup \cdots \cup (y_k - \delta_k, y_k + \delta_k)$ also covers $K$. Choose $\delta = \min\braces{\delta_k} > 0$ so that any point in the uniont is distance $\delta$ from $x$. Then the sequence converges to $x$ which is a contradiction. 
+    \end{proof}
+\end{thm}
+
+\subsection{Lecture 15}
+\begin{thm}{}
+    A set $U \subset \RR$ is open if and only if $U^{c} = \RR \setminus U$ is closed
+    \begin{proof}
+        $(\Rightarrow)$ Assume $U$ is open. We must show that $x \in U^c$ if $x$ is a limit point of $U^c$. Arguing by contradiction, assume $x \not\in U^c$ so $x \in U$. Then, there exists $\epsilon_x$ such that $(x - \epsilon_x, x + \epsilon_x) \subseteq U$. Then $(x - \epsilon_x, x + \epsilon_x) \cap U^c = \varnothing$. This is a contradiction, since no sequence in $U^c$ can converge to $x$ but $x$ is a limit point of $U^c$. \\
+        $(\Leftarrow)$ Assume $F$ is closed. Arguing by contradiction, assume $F^c$ is not open. That is, for all $\epsilon > 0, (x_0 - \epsilon, x_0 + \epsilon) \not\subseteq F^c$ for some $x_0 \in F^c$. Then, $(x_0 - \epsilon, x_0 + \epsilon) \cup F \neq \varnothing$. Define $x_n \in (x_0 - \epsilon_n, x_0 + \epsilon_n)$ for $\epsilon_n = \frac{1}{n}$. Then $x_n \in F \to x_0 \in F$ as $\epsilon_n \to 0$. This is a contradiction since $x_0 \in F^c$ and $x_0 \in F$. Thus $F^c$ is closed.
+    \end{proof}
+\end{thm}
+
+\subsubsection{3.4: Perfect \& Connected Sets}
+\begin{defbox}{Perfect Sets}
+    A set $A$ is perfect if $A$ is both closed and every point in $A$ is a limit point.
+\end{defbox}
+
+For example, $A = [a, b]$ and the Cantor set are perfect.
+
+\begin{thm}{}
+    If $P$ is a perfect set then $P$ is uncountable.
+
+    \begin{proof}
+        Arguing by contradiction, assume $P$ is countable. Because $P$ is countable, $P = \braces{x_1, \ldots, x_n, \ldots}$. Since $P$ is closed, $x \in I_1$ a closed interval, so $x_1$ is an interior point. So, $I_1 \cap (P \setminus \braces{x_1}) \neq \varnothing$. Now, define $I_1 \supset I_2 \supset I_3 \supset \cdots I_n$ such that $x_n \not\in I_{n+1}$. Then $P_n = I_n \cap P \neq 0$ and there exists $x$ such that $x \in \bigcap_{n=1}^{\infty} \neq \varnothing$ (by the nested compact interval thm). This is a contradiction since if $x \in P$ then $x \not\in \bigcap_{n=1}^\infty P_n$ since for all $n, x_n \not\in I_n+1$ but $x \in \bigcap_{n=1}^\infty P_n$, so $P$ is uncountable.
+    \end{proof}
+\end{thm}

@@ -1,0 +1,32 @@
+\documentclass{exam}
+\usepackage{../shah311}
+
+\hypersetup{colorlinks=true, linktoc=section, linkcolor=blue}
+
+\pagestyle{headandfoot}
+\firstpageheadrule
+\runningheadrule
+\firstpageheader{Prof. Rong \\ Real Analysis}{Recitation Quiz}{\today \\ Jeevan Shah}
+\runningheader{Real Analysis}{}{Shah}
+\firstpagefooter{}{}{}
+\runningfooter{ }{\thepage}{ }
+
+\printanswers
+\begin{document}
+    Assume that a sequence $\braces{x_n}_{n \in \NN}$ is bounded but divergent. Prove that we can find two subsequences of $\braces{x_n}_{n \in \NN}$ that converge to different limits.
+    \begin{proof}
+        Since $\braces{x_n}$ is bounded, we know that there exists at least one convergent subsequence $\braces{x_{n_{k}}} \to L$. Arguing by contradiction we will suppose that all subsequences of $\braces{x_n}$ converge to $L$ but $\braces{x_n}$ does not converge to $L$. By definition, because $\braces{x_n}$ does not converge to $L$, there exists some $\epsilon_0$ such that for all $N \in \NN$ there exists $n \geq N$ such that 
+        \[
+            |x_n - L| \geq \epsilon_0.
+        \]
+        Since this inequality is true for all $N \in \NN$, there are infinitely many such $n \geq N$ such that $x_n$ will satisfy this inequality. We choose each index in increasing order to form $\braces{x_{n_{i}}}$ which is a subsequence of $\braces{x_{n}}$. That is, 
+        \[
+            |x_{n_{i}} - L| \geq \epsilon_0
+        \]
+        for all $i$ with $n_i < n_{i+1}$. Now, $\braces{x_{n_{i}}}$ is bounded (since $\braces{x_n}$ is bounded) so there exists a subsequence $\braces{x_{n_{i_{k}}}} \to l$ by the Bolzano-Weiestrass Theorem. Then 
+        \[
+            \lim_{k\to\infty} |x_{n_{i_{k}}} - L| = |l - L| \geq \epsilon_0 
+        \] 
+        so $l \neq L$. However, this is a contradiction as we assumed that all subsequences of $\braces{x_n}$ converged to $L$, but $\braces{x_{n_{i_{k}}}}$ converges to $l \neq L$. It follows that our supposition must be false so $\braces{x_{n}}$ converges to $L$. Therefore, since $\braces{x_{n}}$ is divergent, all the subsequences of $\braces{x_{n}}$ cannot have the same limit. Thus we have $\braces{x_{n_{k}}} \to L$ and $\braces{x_{n_{i_{k}}}} \to l$ both subsequences of $\braces{x_{n}}$ but $L \neq l$.
+    \end{proof}
+\end{document}

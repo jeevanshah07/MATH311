@@ -382,3 +382,59 @@ We can apply this by asking, for example, is $a_n = n$ a convergent sequence? Th
         Thus, for $m, n \geq N$ we have that $|S_n - S_m| < \epsilon$ and so $\braces{S_n}$ is Cauchy and thus convergent. 
     \end{solution}
 \end{example}
+\subsection{Lecture 11}
+\begin{thm}{Cauchy Criterion for Series}
+    The series $\sum a_n$ is convergent if and only if for any $\epsilon > 0$ there exists an $N \in \NN$ such that $m, n \geq N$ implies 
+    \[
+        \left|\sum_{k=m+1}^{n} a_k\right| < \epsilon
+    \]    
+\end{thm}
+
+\begin{thm}{}
+    If $\sum |a_n|$ converges, then $\sum a_n$ converges.
+    \begin{proof}
+        For any $\epsilon > 0$ there exists $N \in \NN$ such that $n > m \geq N$ implies 
+        \[
+            \sum_{k=m+1}^{n} |a_k| < \epsilon \Rightarrow \sum_{k=1}^{\infty} a_k \text{ convergent}
+        \] 
+        since 
+        \[
+            \sum |a_k| \geq \left|\sum a_k\right| 
+        \]
+        by the triangle inequality.
+    \end{proof}
+\end{thm}
+
+\begin{thm}{Alternating Test}
+    If $a_n \geq 0$ and $a_n$ monotone decreasing to $0$, then $\sum (-1)^n a_n$ converges. 
+    \begin{proof}
+        For all $\epsilon > 0$ there exists $N \in \NN$ such that $a_n < \epsilon$. For $n > m \geq N$ we have that 
+        \[
+            \left|\sum_{k=m+1}^{n} (-1)^k a_k\right| = |a_{m+1} - (a_{m+2} - a_{m+3}) + \cdots | < a_{m+1} < \epsilon
+        \]
+        since $m + 1 > m \geq N$.
+    \end{proof}
+\end{thm}
+
+\begin{defbox}{Re-arrangement}{}{}
+    Let $f: \NN \to \NN$ be bijective. We call $\sum b_n$ a rearrangement of $\sum a_n$ if $b_n = a_{f(n)}$.
+\end{defbox}
+
+For example, if we have 
+\begin{align*}
+    S_n &= a_1 + a_2 + a_3 + \cdots + a_n \quad \text{and} \\
+    J_n &= a_1 + a_3 + a_2 + \cdots 
+\end{align*}
+with $S_n = \sum a_n$ and $J_n = \sum b_n$ then $b_n$ is a rearrangement of $a_n$ since $1 \mapsto 1, 2 \mapsto 3, 3 \mapsto 2$, etc.
+
+\begin{thm}{}
+    If $\sum |a_n|$ converges to $a$, then $\sum |b_n| = a$ where $b_n$ is a re-arrangement of $a_n$.
+    \begin{proof}
+        Because $\sum a_n = a$ and $a_n \geq 0$, for all $\epsilon > 0$ there exists $N \in \NN$ such that 
+        \[
+            |S_n(a_k) - a| < \epsilon.
+        \]
+        Let $N_1 = \max\braces{f(1), \ldots, f(N)}$ and take $n \geq N + N_1$. Then 
+        \[\left|\sum^{N+N_1} b_k - a\right| < \epsilon\]
+    \end{proof}
+\end{thm}
