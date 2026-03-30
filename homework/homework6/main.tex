@@ -1,0 +1,129 @@
+\documentclass{exam}
+\usepackage{../../shah311}
+
+\hypersetup{colorlinks=true, linktoc=section, linkcolor=blue}
+
+\pagestyle{headandfoot}
+\firstpageheadrule
+\runningheadrule
+\firstpageheader{Prof. Rong \\ Real Analysis}{Homework 4}{Jeevan Shah}
+\runningheader{Real Analysis \\ Homework 4}{}{Shah}
+\firstpagefooter{}{}{}
+\runningfooter{ }{\thepage}{ }
+
+\printanswers
+% hw4: pp59: 2.5.1, 2.5.2, 2.2.5, 2.5.9, 
+
+% pp70: 2.6.2, 2.6.4, 2.7.2, 2.7.10
+\begin{document}
+    \colorbox{red}{\underline{3.2.2:}}
+    \begin{solution}
+        \begin{parts}
+            \part The limit points of $A$ are $\braces{-1, 1}$. Every point in $B$ is a limit point along with $0$ and $1$.
+
+            \part $A$ is not closed since $-1, 1, \not\in A$. A is also not open since no $V_{\epsilon}(x) \subseteq A$ for any $x \in A$ and any $\epsilon > 0$. $B$ is not closed since $0, 1 \not\in B$. $B$ is not open since for any $V_{\epsilon}(x)$, there exists $r \in \RR \setminus \QQ$ such that $r \in V_{\epsilon}(x)$.
+
+            \part Since all values in the sequence are unique, every point in $A$ is an isolated point. Since every point in $B$ is a limit point, there are no isolated points in $B$.
+
+            \part $\bar{A} = A \cup \braces{-1, 1}$ and $\bar{B} = [0, 1]$.
+        \end{parts}
+    \end{solution}
+
+    \colorbox{red}{\underline{3.2.4:}}
+    \begin{solution}
+        \begin{parts}
+            \part \begin{proof}
+                Let $\bar{A}$ be the closure of $A$ and $s = \sup A$. Then, since $A$ is bounded above, there exists a sequence $a_n \in A$ such that $0 \leq s - a_n \leq \epsilon_n$ with $\epsilon_n > \epsilon_{n+1} > 0$. We know that $a_n \in A$ by definition of suprememum, so it is clear that $a_n \to s$. Thus, $s \in \bar{A}$.
+            \end{proof}
+
+            \part Open sets cannot contain their supremum since for any $\epsilon >0, V_{\epsilon}(s) \not\subseteq A$ for $A$ open and $s = \sup A$ since $s + \epsilon \not\in A$ by definition.
+        \end{parts}
+    \end{solution}
+
+    \colorbox{red}{\underline{3.2.6:}}
+    \begin{solution}
+        \begin{parts}
+            \part False, consider $O = \RR \setminus \braces{\pi, \mathbf{e}, \sqrt{2}} \supseteq \QQ$. Then $O^{c} = \braces{\pi, \mathbf{e}, \sqrt{2}}$ which is closed so $O$ much be open and $O \neq \RR$.
+
+            \part False, consider $I_n = [n, \infty)$ such that $I_1 \supset I_2 \supset \cdots \supset I_n \supset \cdots$. Then, $\bigcap_{n=1}^{\infty}I_n = \varnothing$ since there does not exist $x \in \RR$ such that $x \geq n$ for all $n \in \NN$. Each $I_n$ is open since $(I_n)^c = (-\infty, n)$ is open (by being an open interval), so $I_n$ is closed.
+
+            \part \begin{proof}
+                Let $O$ be a nonempty open set, and consider $V_{\epsilon}(x)$ for some $x \in O$. Since $V_{\epsilon}(x) = (x - \epsilon, x + \epsilon) \subseteq O \supseteq \RR$, by the density of $\QQ$ in $\RR$, there will always exist $q \in QQ$ such that $q \in V_{\epsilon}(x)$ and so $q \in O$.
+            \end{proof}
+
+            \part False, consider $F = \braces{\sqrt{2} + \frac{1}{n} \mid n \in \NN} \cup \braces{\sqrt{2}}$. $F$ is bounded by $\sqrt{2} + 1$, infinite by definition, and closed since the only limit point is $\sqrt{2} \in F$.
+
+            \part \begin{proof}
+                The cantor set is dinefed as the infinite intersection of closed sets, so it must also be closed.
+            \end{proof}
+        \end{parts}
+    \end{solution}
+
+    \colorbox{red}{\underline{3.2.9:}}
+    \begin{solution}
+        \begin{parts}
+            \part \begin{proof}
+                Consider $x \in (\bigcup_{\lambda \in \Lambda} E_\lambda)^c$. By definition of compliment, $x \not\in \bigcup E_{\lambda}$. By definnition of union $x \not\in E_{\lambda}$ for all $\lambda \in \Lambda$. Then, $x \in E_{\lambda}^c$ for all $\lambda \in \Lambda$ so $x \in \bigcap_{\lambda \in \Lambda} E_{\lambda}^c$. Thus $(\bigcup E_{\lambda})^c \subseteq \bigcap E^c_{\lambda}$. Now consider $x \in \bigcap_{\lambda \in \Lambda} E_{\lambda}^c$. By definition of intersection, $x \in E_{\lambda}^c \Rightarrow x \not\in E_{\lambda}$ for all $\lambda \in \Lambda$. Then, $x \not\in \bigcup E_{\lambda} \rightarrow x \in (\bigcup E_{\lambda})^c$, so $\bigcap E_{\lambda}^c \subseteq (\bigcup E_{\lambda})^c$. It follows by set equality that $(\bigcup E_\lambda)^c = \bigcap E_{\lambda}^c$. \\
+                Consider $x \in (\bigcap E_{\lambda})^c \Rightarrow x \not\in \bigcap E_{\lambda} \Rightarrow \exists \lambda_0 \in \Lambda \st x \not\in E_{\lambda_0} \Rightarrow x \in E_{\lambda_0}^c$. Then, $x \in \bigcup E_{\lambda}^c$ and $(\bigcap E_\lambda)^c \subseteq \bigcup E_{\lambda}^c$. Now consider $x \in \bigcup E_{\lambda}^c$. Then, $x \in E_{\lambda}^c$ for at least one $\lambda_0 \in \Lambda$, so $x \not\in E_{\lambda_0} \Rightarrow x \not\int \bigcap E_{\lambda} \Rightarrow X \in (\bigcap E_{\lambda})^c$ and $\bigcup E_\lambda^c \subseteq (\bigcap E_\lambda)^c$. By set equality $(\bigcap E_{\lambda})^c = \bigcup E_{\lambda}^c$.
+            \end{proof}
+
+            \part From (Thm$3.2.13$) we know that if $F$ is closed, $F^c$ is open, and if $O$ is open then $O^c$ is closed. By (Thm$3.2.3$), we know that $O = \bigcup O_\lambda$ is open if $\braces{O_\lambda \mid \lambda \in \Lambda}$ is a collection of open sets. Then, $O^c = (\bigcup O_\lambda)^c = \bigcap O_\lambda^c$ is closed with each $O_\lambda^c$ closed. By a similar argument, $O = \bigcap O_\lambda$ is open and $O^c = (\bigcap O_\lambda)^c = \bigcup O_\lambda^c$ is closed with $O_\lambda^c$ each closed.
+        \end{parts}
+    \end{solution}
+
+    \colorbox{red}{\underline{3.2.15:}}
+    \begin{solution}
+        \begin{parts}
+            \part \begin{proof}
+                Consider $I_n = \left(a - \frac{1}{n}, b + \frac{1}{n}\right)$. Each $I_n$ is opne since $I_n$ is an open interval and $\bigcap I_n = [a, b]$ since if $x \in [a, b]$ then $a - \frac{1}{n} < x < b + \frac{1}{n}$, so $x \in I_n$ for all $n$. If $x < a$ then $a - x > 0$ so for $n$ large, $\frac{1}{n} < a - x \Rightarrow x \leq a - \frac{1}{n} \Rightarrow x \not\in I_n$ for all $n$. Similarlly, $x > b \Rightarrow x - b > 0 \Rightarrow x - b > \frac{1}{n} \Rightarrow x > b + \frac{1}{n} \Rightarrow x \not\in I_n$ for all $n$ with $n$ large. Then, only the points in $[a, b]$ remain and so $[a, b]$ is a $G_\delta$ set. 
+            \end{proof}
+
+            \part \begin{proof}
+                $(F_\sigma)$ For each $n \in \NN$ let $F_n = \left[a + \frac{1}{n}, b\right]$ be closed. Then $(a, b) = \bigcup F_N$. Let $x \in (a, b]$ so that $x - a > 0$. Chose $n$ large so $x - a > \frac{1}{n} \Rightarrow a + \frac{1}{n} < x \leq b$. Then $x \in F_n$ so $x \in \bigcup F_n \therefore (a, b] \subseteq \bigcup F_n$. Now, take $x \in F_n$ for some $n$. Then $a + \frac{1}{n} \leq x \leq b \Rightarrow a < x \leq b \Rightarrow x \in (a, b]$ so $\bigcup F_n \subseteq (a, b]$. Then $\bigcup F_n = (a, b]$ and $(a, b]$ is a $F_\sigma$ set. \\
+                $(G_\delta)$ For each $n \in \NN$ let $O_n = \left(a, b + \frac{1}{n}\right)$ be open. Then $(a, b] = \bigcap O_n$. Let $x \in (a, b]$ so $a < x \leq b < b + \frac{1}{n}$ for all $n$. Then $x \in O_n$ for all $n$ so $x \in \bigcap O_n$ and $(a, b] \subseteq \bigcap O_n$. Now, let $x \in \bigcap O_n$ so $a < x < b + \frac{1}{n}$. Arguing by contradiction, supposed $x > b \Rightarrow x - b > 0 \Rightarrow \frac{1}{n} < x - b \Rightarrow \frac{1}{n} + b < x$ which is a contradiction. Thus, $x \leq b$ so $x \in (a, b]$ and $\bigcap O_n \subseteq (a, b]$ and $\bigcap O_n = (a, b]$ and $(a, b]$ is a $G_\delta$ set.
+            \end{proof}
+
+            \part \begin{proof}
+                $(\QQ)$ By countability of $\QQ$ we may write $\QQ = \braces{q_1, q_2, q_3, \ldots}$. Then $\braces{q_n}$ is closed since it is a singleton set and $\QQ = \bigcup \braces{q_n}$ which is the countable union of closed sets and so $\QQ$ is an $F_\sigma$ set. \\
+                $(\RR \setminus \QQ)$ From amove, $R \setminus \QQ = \RR \setminus (\bigcup \braces{q_n}) = \bigcap (\RR \setminus \braces{q_n})$. Since $\braces{q_n}$ is closed, $\braces{q_n}^c = \RR \setminus \braces{q_n}$ is open, so $\RR \setminus \QQ$ is a countable intersection of open sets and thus a $G_\delta$ set.
+            \end{proof}
+        \end{parts}
+    \end{solution}
+
+    \colorbox{red}{\underline{3.3.1:}}
+    \begin{solution}
+        \begin{proof}
+            If $K$ is compact, $K$ is closed so $\sup K \in K$ by $3.2.4$(a). Similarlly, let $i = \inf K$ and define a sequence $a_n \in K$ with $i \leq a_n < i + \epsilon_n$ with $\epsilon_n > \epsilon_{n+1}$. Then $a_n \to i$ so $i \in K$, also because $K$ is closed.
+        \end{proof}
+    \end{solution}
+
+    \colorbox{red}{\underline{3.3.2:}}
+    \begin{solution}
+        \begin{parts}
+            \part $\NN$ is not compact since it is not bounded.
+
+            \part $\QQ \cup [0, 1]$ is not compact. Consider $a_n \in Q \cap [0, 1]$ with $a_n \to \sqrt{2}/2$. Such a sequence exists since $\QQ \cap [0, 1]$ is bounded, and the sequence may converge to $\sqrt{2}/2$ since $\QQ$ is dense in $\RR$. All subsequences of a convergent sequence converge to the same limit but $\sqrt{2}/2 \not\in \QQ \cap [0, 1]$ so $\QQ \cap [0, 1]$ cannot be compact since it is not closed.
+
+            \part The Cantor set is compact because it is a subset of $[0, 1]$ which is closed and bounded.
+
+            \part This set is not compact since it is the set of partial sums of $\sum \frac{1}{n^2}$ but $\lim_{n \to \infty} \sum \frac{1}{n^2} = \frac{\pi^2}{6}$ is not in the set.
+
+            \part This set is compact since it is bounded by $0$ and $1$, and its only limit point $1$ is contained in the set.
+        \end{parts}
+
+    \end{solution}
+    \colorbox{red}{\underline{3.3.5:}}
+    \begin{solution}
+        \begin{parts}
+            \part True by the nested sompact set theorem (proved in class, see lecture 14 notes \underline{\href{https://github.com/jeevanshah07/MATH311/blob/main/notes/main.pdf}{here}})
+
+            \part False, consider $I_n = [-n, n]$ such that $\bigcup I_n = \RR$ but $\RR$ is not compact since it is not bounded.
+
+            \part False, consider $[0, 1] \cap \QQ$ which is not compact despite $[0, 1]$ compact and $\QQ$ an arbitrary set.
+
+            \part False, consider $F_n = [n, \infty)$ so $\bigcap F_n = \varnothing$.
+        \end{parts}
+    \end{solution}
+
+\footnotetext{\LaTeX\, code for this document can be found on github \href{https://github.com/jeevanshah07/MATH311/blob/main/homework/homework6/main.tex}{\underline{here}}}
+\end{document}
