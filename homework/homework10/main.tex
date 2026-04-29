@@ -1,0 +1,117 @@
+\documentclass{exam}
+\usepackage{../../shah311}
+
+\hypersetup{colorlinks=true, linktoc=section, linkcolor=blue}
+
+% p.140: 4.5.3, 4.5.4, 4.5.6, 4.5.7, 
+% p.141: 4.6.4, 4.6.5, 4.6.7.
+
+\pagestyle{headandfoot}
+\firstpageheadrule
+\runningheadrule
+\firstpageheader{Prof. Rong \\ Real Analysis}{Homework 10}{Jeevan Shah}
+\runningheader{Real Analysis \\ Homework 10}{}{Shah}
+\firstpagefooter{}{}{}
+\runningfooter{ }{\thepage}{ }
+
+\printanswers
+
+\begin{document}
+\colorbox{red}{\underline{4.5.3:}}
+\begin{solution}
+\begin{proof}
+    Assume $f$ is increasing and satisfies the intermediate value property. Since $f$ is increasing we have that $x < c < y \Rightarrow f(x) \leq f(c) \leq f(y)$. For contradiction, assume $f$ is not continuous at $c$. Since $f$ is monotone increasing it follows that the only possible discontinuity is a jump discontinuity. Suppose that the left-han values don't approach $f(c)$. Then, there exists some $L < f(c)$ such that $f(x) \leq L < f(c)$ for all $x < c$ sufficiently close to $c$. Choose any $z$ such that $L < z < f(c)$. By the intermediate value property there must exist some $t \in (x, c)$ such that $f(t) = z$ which is a contradiction since $f(x) \leq L$ for all $x < c$. Thus, 
+    \[
+        \lim_{x\to\,c^{-}}f(x) = f(c).
+    \]
+    An identical argument follows for the right handed limit. Since the sided limits are equal, $f$ is continuous at all points.
+\end{proof} 
+\end{solution}
+
+\colorbox{red}{\underline{4.5.4:}}
+\begin{solution}
+\begin{proof}
+    Let $g$ be a continuous function on an interval $A$ and define $F$ as the set of all points were $g$, fails to be one-to-one on $A$. If $g$ is one-to-one on $A$ then $F$ is empty and we are done. Now suppose that $g$ is not one-to-one on $A$. It follows that there exists $x_1, x_2 \in A$ such that $x_1 \neq x_2$ but $f(x_1) = f(x_2)$. WLOG take $x_1 < x_2$. Since $g$ is continuous there exists some $c \in (x_1, x_2)$ such that $g(c) \neq g(x_1)$, and WLOG take $g(c) > g(x_1)$. It follows by the IVP that for $y \in (g(x_1), g(c))$ there exists some $a \in (x_1, c)$ such that $g(a) = y$. There must also exist $b \in (c, x_2)$ such that $g(b) = y$, and thus $a, b \in F$. So, for every $y \in (g(x_1), g(c))$ there exists at least one point in $F$. Since the interval is uncountable, it follows that $F$ is also uncountable. 
+\end{proof}    
+\end{solution}
+
+\colorbox{red}{\underline{4.5.6:}}
+\begin{solution}
+    \begin{parts}
+        \part Consider $h(x) = f\left(x + \frac{1}{2}\right) - f(x)$ defined for all $x \in \left[0, \frac{1}{2}\right]$. It follows that 
+        \begin{align*}
+            h(0) &= f\left(\frac{1}{2}\right) - f(0) \\
+            h\left(\frac{1}{2}\right) &= f\left(1\right) - f\left(\frac{1}{2}\right) = f(0) - f\left(\frac{1}{2}\right) = -h(0).
+        \end{align*}
+        Then there must exist some $x$ such that $h(x) = 0$ since either $h(x) = 0$ for all $x$ or $h(0)$ and $h\left(\frac{1}{2}\right)$ have opposite signs and we can apply the IVP to find such $x$. Then, if $h(x) = 0$ we have that $f(x) = f\left(x + \frac{1}{2}\right)$ so we take $y = x + \frac{1}{2}$. Then, $|x - y| = \frac{1}{2}$ and $f(x) = f(y)$. 
+
+        \part As above, define $h(x) = f\left(x + \frac{1}{n}\right)$ for $x \in \left[0, 1 - \frac{1}{n}\right]$ and suppose that $h(x) \neq 0$ and so either $h(x) > 0$ or $h(x) < 0$ for all $x$. WLOG take $h(x) > 0$ ans consider $x = 0, \frac{1}{n}, \frac{2}{n}, \ldots, \frac{n-1}{n}, 1$ so that 
+        \[
+            f\left(\frac{1}{n}\right) > f(0), f\left(\frac{2}{n}\right) > f\left(\frac{1}{n}\right), \ldots, f(1) > f\left(\frac{n-1}{n}\right).
+        \]
+        However, it then follows that $f(1) > f(0)$ which contradicts that $f(1) = f(0)$ so there must exist some $x$ such that $h(x) = 0$ and $f(x) = f\left(x + \frac{1}{n}\right)$. We take $x = x_n$ and $y_n = x + \frac{1}{n}$ so $|x - y| = \frac{1}{n}$ and $f(x_n) = f(y_n)$.
+
+        \part Consider $f(x) = \cos(5\pi x) + 2x$. Then 
+        \[
+            f\left(x + \frac{2}{5}\right) = \cos\left(5\pi\left(x + \frac{2}{5}\right)\right) + 2\left(x + \frac{2}{5}\right) = \cos(5\pi x) + 2x + \frac{4}{5}.
+        \]
+        It follows that 
+        \[
+            f\left(x + \frac{2}{5}\right) - f(x) = \frac{4}{5} \neq 0  
+        \]
+        for all $x \in [0, 1]$.
+    \end{parts}    
+\end{solution}
+
+\colorbox{red}{\underline{4.5.7:}}
+\begin{solution}
+\begin{proof}
+    Define $h(x) = f(x) - x$. Since $h$ is continuous we can apply the IVP to fine some c such that $h(c) = 0$. It follows that $f(c) = c$. 
+\end{proof}    
+\end{solution}
+
+\colorbox{red}{\underline{4.6.4:}}
+\begin{solution}
+\begin{proof}
+    $(\Rightarrow)$ Suppose $\lim_{x \to c} f(x) = L$. By definition of a functional limit, any sequence $(a_n) \in A$ with $a_n \to c \Rightarrow f(a_n) \to L$. Since this holds for any sequence, take $x_n = c - \frac{1}{n}$ and $y_n = c + \frac{1}{n}$. It follows that 
+    \[
+        \lim_{x\to\,c^{-}}f(x) = L \quad\text{and}\quad \lim_{y\to\,c^{+}} f(x) = L
+    \]
+    since $x_n < c$ and $y_n > c$ for all $n$ \\
+    $(\Leftarrow)$ Suppose that 
+    \[
+        \lim_{x\to\,c^{-}}f(x) = L \quad\text{and}\quad \lim_{y\to\,c^{+}} f(x) = L.
+    \]
+    By definition all sequences less than $c$ that converge to $c$ have a functional limit of $L$ and all sequences greater than $c$ that converge to $c$ have a functional limit of $L$. But this accounts for all sequences that converge to $c$ so 
+    \[
+        \lim_{x\to\,c} f(x) = L. 
+    \]
+\end{proof}
+\end{solution}
+
+\colorbox{red}{\underline{4.6.5:}}
+\begin{solution}
+\begin{proof}
+    Let $f$ be a monotone function and WLOG let $f$ be increasing. For $x < c$ we have that $f(x)$ is bounded by $f(c)$ since $f(x) \leq f(c)$. As $x \to c^-$ the values of $f(x)$ increase to a limit so 
+    \[
+        f(c^{-}) = \lim_{x \to c^{-}} f(x).  
+    \]
+    Similarly we have that 
+    \[
+        f(c^{+}) = \lim_{x \to c^{+}} f(x). 
+    \]
+    Since both sided limit exist, if $f$ is discontinuous at $c$ one of the sided limits must not be equal to $f(c)$, which is exactly the defintion of a jump discontinuity.
+\end{proof}    
+\end{solution}
+
+\colorbox{red}{\underline{4.6.6:}}
+\begin{solution}
+\begin{proof}
+    Consider $c \in D_f$ so that 
+    \[
+        \lim_{x\to\,c^{-}} f(x) = a < b = \lim_{x\to\,c^{+}}
+    \]
+    since $f$ is montone. Define $\phi: D_f \to \QQ$ by $c \mapsto q_c$ for $a < q_c < b$ which must exist by properties of density. It follows that if $c_1 < c_2 \Rightarrow q_{c_1} < q_{c_2}$ for $c_1, c_2 \in D_f$ so that $q_{c_1} \neq q_{c_2}$. Then, $\phi$ is injective so $D_f$ is at most countable.
+\end{proof}
+\end{solution}
+\end{document}

@@ -1,0 +1,58 @@
+\documentclass{exam}
+\usepackage{../../shah311}
+
+\hypersetup{colorlinks=true, linktoc=section, linkcolor=blue}
+
+\pagestyle{headandfoot}
+\firstpageheadrule
+\runningheadrule
+\firstpageheader{Prof. Rong \\ Real Analysis}{Homework 4}{Jeevan Shah}
+\runningheader{Real Analysis \\ Homework 4}{}{Shah}
+\firstpagefooter{}{}{}
+\runningfooter{ }{\thepage}{ }
+
+\printanswers
+\begin{document}
+\colorbox{red}{\underline{3.4.1}}
+\begin{solution}
+    \begin{parts}
+        \part $P \cap K$ is always compact because $P \cap K \subseteq K$ and closed subsets of compact sets are compact.
+        \part $P \cap K$ is not always perfect. Consider $P = \RR$ and $K = \braces{0}$. Then, $P \cap K = \braces{0}$ but $0$ is an isolated point.
+    \end{parts}
+\end{solution}
+
+\colorbox{red}{\underline{3.4.2}}
+\begin{solution}
+    No, any set $A \subseteq \QQ$ is countable, but all nonempty perfects sets are uncountable by Thm$3.4.3$.     
+\end{solution}
+
+\colorbox{red}{\underline{3.4.7}}
+\begin{solution}
+    \begin{parts}
+        \part Consider any $x, y \in \QQ$ and WLOG take $x < y$. Since $x, y \in \RR$ and the irrationals are dense in $\RR$, there exists $r \in \RR \setminus \QQ$ such that $x < r < y$. Now, let $A = \QQ \cap (-\infty, r)$ and $B = \QQ \cap (r, \infty)$ so that $\QQ = A \cup B$. As well, since $A \subseteq (-\infty, a)$ by the order limit theorem any limit point of $A$ is within $(-\infty, a]$ which is disjoint with $B$. Similarly, $B \subseteq [a, \infty)$ and $A \cap B = \varnothing$ so $A$ and $B$ are seperated. Thus, for any $x, y \in \QQ$ we may find $A, B$ so $\QQ$ is totally disconnected. 
+        \part An identical argument as above follows except with $x, y \in \RR \setminus \QQ$ and $r \in \QQ$ since $\QQ$ is also dense in $\RR$.
+    \end{parts}    
+\end{solution}
+
+\colorbox{red}{\underline{3.5.5}}
+\begin{solution}
+    If $F_n$ is closed then $F_n = \bar{F_n}$. Since $F_n$ contains no nonempty open intervals, it is nowhere dense. The result follows from Baire's Theorem.     
+\end{solution}
+
+\colorbox{red}{\underline{3.5.6}}
+\begin{solution}
+    \begin{parts}
+        \part For contradiction assume $I = \RR \setminus \QQ = \bigcup_{n=1}^\infty F_n$ with each $F_n$ closed and containing no nonempty open intervals. Then $\RR = I \cup \QQ = \left(\bigcup_{n=1}^\infty F_n\right) \cup \left(\bigcup_{m=1}^\infty \braces{q_m}\right)$ with $\braces{q_m}$ a singletone set and thus closed with no nonempty open intervals. Then, $\RR$ is the countable union of closed sets containing no nonempty open intervals, which is a contradiction.
+        \part Assume for contradiction that $\QQ$ is $G_\delta$. That is, $\QQ = \bigcap_{n=1}^{\infty} O_n$ for $O_n$ open. Then $\QQ^{c} = I = \RR \setminus \QQ = \left(\RR \setminus \bigcap_{n=1}^{\infty} O_n\right) = \bigcup_{n=1}^{\infty} (\RR \setminus O_n)$ but each $\RR \setminus O_n$ is closed, making $I$ an $F_\sigma$ set which is a contradiction.
+    \end{parts}    
+\end{solution}
+
+\colorbox{red}{\underline{3.5.8}}
+\begin{solution}
+    \begin{proof}
+        Assume that $E \subseteq \RR$ is nonwhere dense. We need to show $\bar{E}^c = \RR \setminus \bar{E}$ is dense. Arguing by contradiction, assume there exists $a \in \RR$ such $a$ is not a limit point of $\bar{E}^c$. Then, there exists $\delta > 0$ such that $(a - \delta, a + \delta) \cap \bar{E}^c = \varnothing$ thus $(a - \delta, a - \delta/2) \subseteq \bar{E}$. Or, there exists $a$ such that $(a - \delta, a - \delta/2) \subseteq E \subseteq \bar{E}$. Either way, we arrive at a contradiction since $\bar{E}$ contains no nonempty open intervals.
+    \end{proof}    
+\end{solution}
+
+\footnotetext{\LaTeX\, code for this document can be found on github \href{https://github.com/jeevanshah07/MATH311/blob/main/homework/homework7/main.tex}{\underline{here}}}
+\end{document}

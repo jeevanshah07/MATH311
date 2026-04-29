@@ -1,0 +1,51 @@
+\documentclass{exam}
+\usepackage{../shah311}
+
+\hypersetup{colorlinks=true, linktoc=section, linkcolor=blue}
+
+\pagestyle{headandfoot}
+\firstpageheadrule
+\runningheadrule
+\firstpageheader{Prof. Rong \\ Real Analysis}{Recitation Quiz \#2}{\today \\ Jeevan Shah}
+\runningheader{Real Analysis}{}{Shah}
+\firstpagefooter{}{}{}
+\runningfooter{ }{\thepage}{ }
+
+\printanswers
+\begin{document}
+Use open cover to justify whether the following set is compact or not: 
+\[
+    A = \braces{1 + 1/2^2 + \cdots + 1/n^2 \mid n \in \mathbb{N}}
+\]
+    \begin{proof}
+        We claim that the set is not compact so it suffices to find an open cover such that there does not exist a finite subcover that contains the set. We start by noticing that 
+        \[
+            A = \braces{s_n \mid n \in \mathbb{N}}, \quad s_n = \sum_{k=1}^{n} \frac{1}{k^2}.
+        \]
+        Then, $s_n \to \sum_{k=1}^{\infty}\frac{1}{k^2} = \frac{\pi^2}{6} \not\in A$ since every element of $A$ is a finite partial sum. Then, define the open cover 
+        \[
+            Q = \braces{\left(-\infty, \frac{\pi^2}{6} - \frac{1}{m} \right) \mid m \in \mathbb{N}} 
+        \]
+        where $Q_m = \left(-\infty, \frac{\pi^2}{6} - \frac{1}{m}\right)$. $Q$ covers $A$ since for any $s_n \in A, s_n < \frac{\pi^2}{6}$, so 
+        \[
+            \frac{\pi^2}{6} - s_n > 0. 
+        \] 
+        By choosing $m$ large, we can see that 
+        \[
+            \frac{1}{m} < \frac{\pi^2}{6} - s_n \Rightarrow s_n < \frac{\pi^2}{6} - \frac{1}{m} \Rightarrow s_n \in Q_m
+        \]
+        and thus $Q$ covers $A$. Now, we show that there is no finite subcover that contains $A$. Consider any finite collection of open sets $Q_{m_1}, Q_{m_2}, \ldots, Q_{m_k}$ such that 
+        \[
+            \bigcup_{r=1}^{k} Q_{m_r} = \left(-\infty, \frac{\pi^2}{6} - \frac{1}{M}\right), \quad M = \max\braces{m_1, m_2, \ldots, m_{k}}.
+        \]
+        Since $s_n \to \frac{\pi^2}{6}$, there exists $n$ such that 
+        \[
+            s_n > \frac{\pi^2}{6} - \frac{1}{M}
+        \]
+        Then, 
+        \[ 
+           s_n \not\in \bigcup_{r=1}^{k} Q_{m_r}.
+        \]
+        but $s_n \in A$. Thus, there exists an open cover of $A$ such that no finite subcover covers $A$.
+    \end{proof}
+\end{document}

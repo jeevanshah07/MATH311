@@ -1,0 +1,26 @@
+\documentclass{exam}
+\usepackage{../../shah311}
+
+\hypersetup{colorlinks=true, linktoc=section, linkcolor=blue}
+
+\pagestyle{headandfoot}
+\firstpageheadrule
+\runningheadrule
+\firstpageheader{Prof. Rong \\ Real Analysis}{Recitation Quiz \#3}{\today \\ Jeevan Shah}
+\runningheader{Real Analysis}{}{Shah}
+\firstpagefooter{}{}{}
+\runningfooter{ }{\thepage}{ }
+
+\printanswers
+\begin{document}
+\begin{theorem}
+    A monotone function can only have countable discontinuities.
+\end{theorem}
+\begin{proof}
+    Let $f: \RR \to \RR$ be a montone function and $D_f$ be the set of all point at which $f$ is discontinuous. Consider $c \in D_f$ so that 
+    \[
+        \lim_{x\to\,c^{-}} f(x) = a < b = \lim_{x\to\,c^{+}}
+    \]
+    since $f$ is montone and monotone functions can only have jump discontinuities. Define $\phi: D_f \to \QQ$ by $c \mapsto q_c$ for $a < q_c < b$ with $q_c \in \QQ$ which must exist by properties of density. It follows that if $c_1 < c_2 \Rightarrow q_{c_1} < q_{c_2}$ for $c_1, c_2 \in D_f$ so that $q_{c_1} \neq q_{c_2}$. Then, $\phi$ is injective so $D_f$ is at most countable.
+\end{proof}
+\end{document}

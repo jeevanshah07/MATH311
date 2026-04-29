@@ -1,0 +1,259 @@
+\documentclass{exam}
+\usepackage{../../shah311}
+
+\hypersetup{colorlinks=true, linktoc=section, linkcolor=blue}
+
+% p.126: 4.3.11, 4.3.12
+% p.134: 4.4.1, 4.4.2, 4.4.3, 4.4.7, 4.4.9, 4.4.12, 4.4.13
+
+\pagestyle{headandfoot}
+\firstpageheadrule
+\runningheadrule
+\firstpageheader{Prof. Rong \\ Real Analysis}{Homework 9}{Jeevan Shah}
+\runningheader{Real Analysis \\ Homework 9}{}{Shah}
+\firstpagefooter{}{}{}
+\runningfooter{ }{\thepage}{ }
+
+\printanswers
+
+\begin{document}
+\colorbox{red}{\underline{4.3.11:}}
+\begin{solution}
+    \begin{parts}
+        \part Take $\delta = \epsilon / c$. Then, if $| x - y| < \delta$ we have 
+        \[
+            |f(x) - f(y)| \leq c|x-y| \leq c\delta = \epsilon. 
+        \]
+        And so $f$ is continuous.
+
+        \part By definition $|y_{n+1} - y_n| = |f(y_n) - f(y_{n-1})| \leq c|y_{n} - y_{n-1}|$. Repeatadly applying this identity we see 
+        \[
+            |y_{n+1} - y_{n}| \leq c^{n-1}|y_2 - y_1|. 
+        \]
+        Now, let $m > n$ and apply the triangle inequality so 
+        \begin{align*}
+            |y_m - y_n| &\leq |y_m - y_{m-1}| + \cdot + |y_{n+1} - y_n| \\
+            &= \sum_{k=n}^{m-1} |y_{k+1} - y_k| \\
+            &\leq \sum_{k=n}^{m-1} c^{k-1}|y_2 - y_1| \\
+            &= |y_2 - y_1| \sum_{k=n}^{m-1}c^{k-1} \\
+            &\leq |y_2 - y_1| \sum_{k=n}^{\infty} c^{k-1} = \frac{|y_2 - y_1| c^{n-1}}{1-c}.
+        \end{align*}
+        Because $0 < c < 1, c^{n-1} \to 0$. Hence, for all $\epsilon > 0$, if $n$ is large enough
+        \[
+            |y_m - y_n| < \epsilon \quad \text{for } {m > n}
+        \]
+        and thus $(y_n)$ is Cauchy.
+
+        \part Since $y_n \to y$ and $f$ is continuous, 
+        \[
+            f(y) = f\left(\lim_{n\to\,\infty} y_n\right) = \lim_{n\to\infty} f(y_n). 
+        \]
+        Since $f(y_n) = y_{n+1}$, 
+        \[
+            f(y) = \lim_{n\to\infty} y_{n+1} = y  
+        \]
+        Thus $y$ is a fixed point. Now supposed $u$ and $v$ are both fixed points. Then $f(u) = u$ and $f(v) = v$ so 
+        \[
+            |u-v| = |f(u) - f(v)| \leq c|u-v| \Rightarrow (1-c)|u - v| \leq 0.
+        \]
+        Since $1 - c > 0$ it follows that $u - v = 0$ so $u = v$ and thus uniqueness is guarenteed.
+
+        \part For any $x \in \RR$ we must show $x_n \to y$. Since $f(y) = y$, 
+        \[
+            |x_{n+1} - y| = |f(x_n) - f(y)| \leq c|x_n - y|. 
+        \]
+        We apply this identity repeateadly, as in $(b)$, to see 
+        \[
+            |x_n - y| \leq c^{n-1}|x_1 - y| 
+        \] 
+        and since $0 < c < 1, c^{n-1} \to 0$ so 
+        \[
+            |x_n - y| \to 0 
+        \]
+        and $x_n \to y$. Thus, for any $x \in \RR$, the sequence converges to the same fixed point, $y$.
+    \end{parts}
+\end{solution}
+
+\colorbox{red}{\underline{4.3.12:}}
+\begin{solution}
+    \begin{parts}
+        \part \begin{proof}
+            Consider any $x, y \in \RR$ fixed and $a \in F$. Thus, by the reverse triangle inequality, 
+            \[
+                \big| |x-a| - |y-a| \big| \leq |x-y| \Rightarrow |x-a| \leq |y-a| + |x-y|. 
+            \]
+            Because this is true for any $a \in F$, we may take the infimum to see 
+            \[
+                g(x) \leq g(y) + |x - y| 
+            \]
+            and, by swapping $x$ and $y$, that 
+            \[
+                g(y) \leq g(x) + |x - y|. 
+            \]
+            Thus, 
+            \[
+                |g(x) - g(y)| \leq |x - y| 
+            \]
+            so $g$ is Lipschitz and therefore continuous on $\RR$.
+        \end{proof}
+
+        \part \begin{proof}
+            Assume for contradiction that $x \not \in F$ but $g(x) = 0$. By definition 
+            \[
+                \inf\braces{|x-a| \mid a \in F} = 0 
+            \]
+            so there exists a sequence $(a_n) \in F$ such that $|x - a_n| \to 0$. It follows that $a_n \to x$ and since $(a_n) \in F$ and $F$ is closed, we must have $x \in F$. Thus, we have arrived at a contradiction and so $x \not\in F$ implies $g(x) \neq 0$.
+        \end{proof}
+    \end{parts}
+\end{solution}
+
+\colorbox{red}{\underline{4.4.1:}}
+\begin{solution}
+    \begin{parts}
+        \part \begin{proof}
+            Let $\delta = \sqrt[3]{\epsilon}$. Then $x < \delta \Rightarrow x^3 < \epsilon$ and so $f$ is continuous on $\RR$.
+        \end{proof}
+
+        \part Consider $x_n = n$ and $y_n = \frac{1}{n} + n$ so $|x_n - y_n| = \frac{1}{n} \to 0$ but 
+        \[
+            |f(y_n) - f(x_n)| = \left|\left(n + \frac{1}{n}\right)^3 - n^3\right| = 3n + \frac{3}{n} + \frac{1}{n^3} \to \infty. 
+        \]
+        Thus, by Theorem $4.4.5$, $f(x) = x^3$ is not uniformly continuous on $\RR$.
+
+        \part Let $A \subset \RR$ be bounded by some $M$ such that $|x| \leq M$ and $|y| \leq M$ for all $x, y \in A$. It follows that 
+        \[
+            |x^3 - y^3| = |x-y| |x^2 + xy + y^2|. 
+        \]
+        By the triangle inequality, 
+        \[
+            |x^2 + xy + y^2| \leq |x|^2 + |x||y| + |y|^2 \leq 3M^2.
+        \]
+        So, 
+        \[
+            |x^3 - y^3| \leq 3M^2|x - y|.
+        \]
+        Therefore, $f$ is Lipschitz, and hence uniformly continuous on $A$.
+    \end{parts}
+\end{solution}
+
+\colorbox{red}{\underline{4.4.2:}}
+\begin{solution}
+    \begin{parts}
+        \part Let $x_n = 1/n$ and $y_n = 1/(n+1)$. Then, $|x_n - y_n| = 1/(n(n+1)) \to 0$ but 
+        \[
+            \left|\frac{1}{x_n} - \frac{1}{y_n}\right| = |n - (n+1)| = 1. 
+        \]
+        Thus, by Theorem $4.4.5$, $f$ is not uniformly continuous.
+
+        \part For $x, y \in (0, 1)$ we have 
+        \[
+            \left|\sqrt{x^2 + 1} - \sqrt{y^2 +1}\right| = \frac{|x^2 - y^2|}{\sqrt{x^2 +1} + \sqrt{y^2 + 1}} \leq \frac{|x^2 - y^2|}{2} \leq \frac{2|x-y|}{2} \leq |x-y|.
+        \]
+        Hence $g$ is Lipschitz and thus uniformly continuous on $(0, 1)$.
+
+        \part Consider 
+        \[
+            H(x) = \begin{cases}
+                x\sin(1/x), \quad& x \in (0, 1) \\
+                0, \quad& x = 0
+            \end{cases} 
+        \]
+        such that $H$ is continuous on $[0, 1]$. Since $[0, 1]$ is compact, $H$ is uniformly continuous on $[0, 1]$. Thus the restriction $h(x) = x\sin(1/x)$ is also uniformly continuous on $(0, 1)$.
+    \end{parts}
+\end{solution}
+
+\colorbox{red}{\underline{4.4.3:}}
+\begin{solution}
+    \begin{parts}
+        \part Consider $x, y \in \RR(x, y \geq 1)$. Then, 
+        \[
+            \left|\frac{1}{x^2} - \frac{1}{y^2}\right| = \left|\frac{y^2 - x^2}{x^2 y^2}\right| = \frac{|x+y||x-y|}{x^2 y^2}.
+        \]
+        Since $x, y \geq 1, x + y \leq 2xy$. Thus, 
+        \[
+            \left|\frac{1}{x^2}-\frac{1}{y^2}\right| \leq \frac{2xy|x-y|}{x^2 y^2} = \frac{2|x-y|}{xy} \leq 2 |x - y|
+        \]
+        So $f$ is Lipschitz on $[1, \infty)$ and thus uniformly continuous.
+
+        \part Take $x_n = 1/n$ and $y_n = 1(n+1)$. As show earlier, $|x_n - y_n| \to 0$, but, 
+        \[
+            \left|\frac{1}{x_n^2} - \frac{1}{y_n^2}\right| = |n^2 - (n+1)^2| = 2n + 1 \to \infty
+        \]
+        Thus, by Theorem $4.4.5$, $f$ is not uniformly continuous on $(0, 1]$.
+    \end{parts}
+\end{solution}
+
+\colorbox{red}{\underline{4.4.7:}}
+\begin{solution}
+    \begin{proof}
+        Notice that 
+        \begin{align*}
+            &|\sqrt{x} - \sqrt{y}|^2 \leq |\sqrt{x} - \sqrt{y}| |\sqrt{x} + \sqrt{y}| = |x - y| \\
+            \Rightarrow& |\sqrt{x} - \sqrt{y}| \leq \sqrt{|x - y|}.
+        \end{align*}
+        So, take $\delta = \epsilon^2$. Then, $|x - y| < \delta$ implies 
+        \[
+            |\sqrt{x} - \sqrt{y}| \leq \sqrt{|x-y|} < \sqrt{\delta} = \epsilon. 
+        \]
+        Since $\delta = \epsilon^2$ does not depend on the choice of $x$ or $y$, $f$ is uniformly continuous.
+    \end{proof}
+\end{solution}
+
+\colorbox{red}{\underline{4.4.9:}}
+\begin{solution}
+    \begin{parts}
+        \part \begin{proof}
+            Assume $f$ is Lipschitz with constant $M$. Choose $\delta = \epsilon / M$. Then, $|x - y| < \delta$ implies 
+            \[
+                |f(x) - f(y)| \leq M|x-y| \leq M \delta = \epsilon
+            \]
+            so $f$ is uniformly continuous.
+        \end{proof}
+
+        \part No. Consider $f(x) = \sqrt{x}$, which is uniformly continuous on $[0, \infty)$. If $f$ were Lipschitz with constant $M$, then $|\sqrt{x} - \sqrt{y}| \leq M|x - y|$ for all $x, y$. Choose $y=0$ and $x > 0$ so 
+        \[
+            \sqrt{x} \leq Lx \Rightarrow L \leq L\sqrt{x}.
+        \]
+        However, as $x \to 0, L\sqrt{x} \to 0$ which is impossible. Thus $f$ cannot be Lipschitz and so all uniformly continuous functions are not always Lipschitz.
+    \end{parts}
+\end{solution}
+
+\colorbox{red}{\underline{4.4.12:}}
+\begin{solution}
+    \begin{parts}
+        \part False, consider $f(x) = 0$ and $B = \braces{0}$. It is clear that $f^{-1}(B)$ is infinite.
+
+        \part False, consider $f(x) = 0$ and $K = \braces{0}$. It is clear that $f^{-1}(K) = \RR$ is not compact.
+
+        \part False, consider $f(x) = 0$ and $A = \braces{0}$. It is clear that $f^{-1}(A) = \RR$ is unbounded.
+
+        \part True buy definition of continuity.
+    \end{parts}
+\end{solution}
+
+\colorbox{red}{\underline{4.4.13:}}
+\begin{solution}
+    \begin{parts}
+        \part \begin{proof}
+            If $f$ is uniformly continuous then there exists some $\delta$ such that for any $\epsilon > 0$, the choice of $\delta$ does not depend on any $x, y \in \RR$. Thus, 
+            \[
+                |x - y| < \delta \Rightarrow |f(x) - f(y)| < \epsilon. 
+            \]
+            Now, let $x = x_m$ and $y= x_n$ with $m > n$. Then, 
+            \[
+                |x_m - x_n| < \delta \Rightarrow |f(x_n) - f(x_m)| < \epsilon. 
+            \]
+            We are guarenteed to find such $x_m$ and $x_n$ since $(x_n)$ is Cauchy. It follows that $f(x_n)$ is also Cauchy. 
+        \end{proof}
+
+        \part \begin{proof}
+            $(\Rightarrow)$ Define $g(a) = \lim_{x\to\,a^{+}} g(x)$. This is possible since for an $(x_n) \in (a, b)$ with $x_n \to a$ we have that 
+            \[
+                |x_n - x_m| < \delta \Rightarrow |g(x_n) - g(x_m)| < \epsilon 
+            \] 
+            since $x_n$ is Cauchy and $g(x_n)$ is also Cauchy by being uniformly continuous. By an identical argument we define $g(b) = \lim_{x\to\,a^{-}}g(x)$. Thus $g$ is continuous on $[a, b]$ which is compact, so $g$ is also uniformly continuous on $[a, b]$. \\
+            $(\Leftarrow)$ Once again, since $[a, b]$ is compact and $g$ is continuous on it, by assumption, $g$ is also uniformly continuous on $[a, b]$. Since $(a, b) \subset [a, b]$, $g$ is uniformly on $(a, b)$.
+        \end{proof}
+    \end{parts}
+\end{solution}
+\end{document}
