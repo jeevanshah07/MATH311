@@ -1,0 +1,79 @@
+\documentclass{exam}
+\usepackage{../shah311}
+
+\begin{document}
+\begin{questions}
+    \question \begin{parts}
+        \part State the axiom of completeness
+        \vspace{\stretch{1}}
+
+        \part Let $A$ be a non-empty bounded set of reals. Prove that there is a sequence $a_n \in A$ such that $a_n \to \sup A$.
+        \vspace{\stretch{2}}
+    \end{parts}
+
+    \newpage 
+
+    \question \begin{parts}
+        \part State the definition of well-ordered principle of natural numbers, and state the definition of a countable set. 
+        \vspace{\stretch{1}}
+
+        \part Assume that $A$ is an infinite set. Prove that $A$ contains and countable subset. 
+        \vspace{\stretch{1}}
+
+        \part Let $P_n(\ZZ) = \braces{a_0 + a_1 x + \cdots + a_n x^n, a_0, a_1, \ldots, a_n \in \ZZ}$, the set of all polynomials of power at most $n$ with integers coefficeints. Prove that $P_n(\ZZ)$ is a countable set. 
+        \vspace{\stretch{2}}
+    \end{parts}
+
+    \newpage 
+
+    \question \begin{parts}
+        \part State the definition of a sequence, $a_n \to a$. 
+        \vspace{\stretch{1}}
+
+        \part Using $(a)$ show that $\displaystyle\lim_{n\to\infty} \frac{2n+1}{3n-5} = \frac{2}{3}$.
+        \vspace{\stretch{1}}
+
+        \part Using $(a)$ show that if $a_n \geq 0$ and $a_n \to a$ then $\sqrt{a_n} \to \sqrt{a}$
+        \vspace{\stretch{1.5}}
+    \end{parts}
+
+    \newpage
+
+    \question \begin{parts}
+        \part State Bolzano-Weierstrass Theorem
+        \vspace{\stretch{1}}
+
+        \part Let $0 < a_1 < 1$, and the sequence defined recursively by $a_{n+1} = a_n(2-a_n)$. Prove by induction that $0 < a_n < 1$.
+        \vspace{\stretch{1}}
+
+        \part Use $(b)$ to prove that $a_n$ is a monotone sequence, and find the value of the limit, $a$, $a_n \to a$.
+        \vspace{\stretch{2}}
+    \end{parts}
+
+    \newpage
+
+    \question \begin{parts}
+        \part State the definition of a series $\sum_{n=0}^{\infty} a_n$ is convergent
+        \vspace{\stretch{1}}
+
+        Determine if the following series is convergent or divergent and using $(a)$ to prove your answer. 
+        \part $\sum_{n=1}^{\infty} \frac{1}{n}$
+        \vspace{\stretch{1.5}}
+
+        \part $\sum_{n=1}^{\infty} \frac{(-1)^{n}}{n}$
+        \vspace{\stretch{1.5}}
+    \end{parts}
+
+    \newpage 
+
+    \question Determine whether the following statement are true (\textbf{T}) or false (\textbf{F}); if choosing \textbf{T}, must provide with a reason or the statement of a theorem, if choosing $\textbf{F}$, you must provide with a counterexample.
+    \begin{parts}
+        \part Given sets, $A$ and $B$, if $A \times B$ is countable, then both $A$ and $B$ are countable
+        \part There is a set $A$ whose cardinality is strictly greater than the cardinality of $\RR$
+        \part Given two sequences, $a_n, b_n$ if $a_n b_n$ convergens then either $a_n$ or $b_n$ converges.
+        \part If $a_n \to a$ with $a_n$ explicity defined, then one is able to identify the value $a$.
+        \part Given two series, $\sum a_n, \sum b_n$ if $\sum a_n^2$ and $\sum b_n^2$ converge, then $\sum a_n b_n$ converges.
+        \part If $\sum_{n=1}^{\infty} a_n = a$, then $|a_n| \to 0$ as $n \to \infty$.
+    \end{parts}
+\end{questions}
+\end{document}

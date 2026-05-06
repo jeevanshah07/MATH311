@@ -1,0 +1,88 @@
+\documentclass{exam}
+\usepackage{../shah311}
+
+\begin{document}
+\begin{questions}
+    \question \begin{parts}
+        \part State the definition for a set in $\RR$ to be closed. 
+        \vspace{\stretch{1}}
+
+        \part State the definition of a function, $f: A \to \RR$, is continuous on $A \subset \RR$.
+        \vspace{\stretch{1}}
+
+        \part Let $f, g: \RR \to \RR$ be two continuous functions. Prove that the set $E$ is closed, where 
+        \[
+            E = \braces{x \in \RR, f(x) = g(x)} 
+        \]
+        \vspace{\stretch{1.5}}
+
+    \end{parts}
+
+    \newpage 
+
+    \question \begin{parts}
+        \part State the definition of the closure $\overline{A}$ of a set $A$.
+        \vspace{\stretch{1}}
+
+        \part Let $f: \RR \to \RR$ be a continuous function, and let $A \subset \RR$. Prove that $f(\overline{A}) \subset \overline{f(A)}$.
+        \vspace{\stretch{1.5}}
+
+        \part Determine whether that $f(\overline{A}) = \overline{f(A)}$ always holds (either provide a proof, or contruct an example to back up your answer).
+        \vspace{\stretch{1.5}}
+    \end{parts}
+
+    \newpage 
+
+    \question \begin{parts}
+        \part State the definition of a compact set, and the Heine-Borel theorem.
+        \vspace{\stretch{1}}
+
+        \part Let $\braces{K_\lambda, \lambda \in \Lambda}$ be a collection of compact sets i.e., each $K_\lambda$ is compact. Prove that $K = \bigcap_{\lambda \in \Lambda} K_\lambda$ is compact.
+        \vspace{\stretch{1.5}}
+
+        \part Assume that $K$ in $(b)$ contains no limit point. Prove that $K$ is a finite set.
+        \vspace{\stretch{1.5}}
+    \end{parts}
+
+    \newpage 
+
+    \question \begin{parts}
+        \part State the definition that $f: A \to \RR$ is uniformly continuous.
+        \vspace{\stretch{1}}
+
+        \part Let $f: A \to \RR$ be uniformly continuous. Let $x$ be a limit point of $A$ i.e., $x \neq x_N \in A, x_n \to x$. Prove that the limit, $\lim_{n\to\,\infty} f(x_n) = L$, for some $L \in \RR$.
+        \vspace{\stretch{1.5}}
+
+        \part Let $f: [2, \infty) \to \RR, f(x) = \sqrt{x-2}$. Prove that $f(x)$ is uniformly continuous.
+        \vspace{\stretch{1.5}}
+    \end{parts}
+
+    \newpage
+
+    \question \begin{parts}
+        \part State the sequential definition for a function, $f: A \to \RR$, to be continuous on $A$. 
+        \vspace{\stretch{1}}
+
+        \part Let $f: (a, b] \to \RR$ and $g: [b, c) \to \RR$ be continuous functions. Assume that $f(b) = g(b)$. Prove that $h: (a, b) \to \RR$ is a continuous function, where $h(x)$ is defined by 
+        \[
+            h(x) = \begin{cases}
+                f(x), \quad& x \in (a, b] \\
+                g(x), \quad& x \in [b, c)
+            \end{cases} 
+        \]
+        \vspace{\stretch{2}}
+    \end{parts}
+
+    \newpage 
+
+    \question Determine whether the following statements are true (\textbf{T}) or false (\textbf{F}); if choosing \textbf{T}, must provide with a reason or the statement of a theorem, if choosing \textbf{F}, you must provide with a counterexample 
+    \begin{parts}
+        \part Let $f: A \to \RR$ be a function. If $f$ is continuous and $x_n \in A$ is a Cauchy sequence, then $f(x_n)$ is also a Cauchy sequence 
+        \part Let $f: A \to \RR$ be a continous function. If $U$ is open, then $f^{-1}(U)$ is open, where $f^{-1}(U) = \braces{x \in A, f(x) \in U}$.
+        \part If $A$ is a perfect set, then $A$ is also a connected set. 
+        \part If $K$ is a compact set, $A$ is a closed set, then $K \cap A$ is a compact set. 
+        \part Let $f: \RR \to \RR$. If there is a dense subset $A \subset \RR$ such that $f$ is continous on $A$, then $f$ is continuous on $\RR$.
+        \part Let $f: [0, 1] \to [0, 1]$ be a continuous function. Then there is a $c \in [0, 1]$ such that $f(c) = c$.
+    \end{parts}
+\end{questions}
+\end{document}
